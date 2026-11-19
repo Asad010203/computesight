@@ -1,0 +1,102 @@
+<div class="takeaways">
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>The EU AI Act regulates AI by risk level. Most computer vision, such as object detection, people counting and defect inspection, falls into the lower-risk categories.</li>
+    <li>Some camera-based uses are banned outright, including emotion recognition at work or in education and untargeted scraping of face images to build recognition databases.</li>
+    <li>Biometric identification, and AI used to monitor or evaluate workers, can be "high-risk", with significant obligations.</li>
+    <li>The AI Act sits alongside GDPR, not instead of it. Privacy-by-design is still the foundation.</li>
+  </ul>
+</div>
+
+<p class="disclaimer">This article is general information to help you plan, not legal advice. Regulatory timelines and guidance are still evolving, so confirm your specific situation with qualified counsel.</p>
+
+<p>The <strong>EU AI Act</strong> is the world's first comprehensive AI law, and it affects anyone who builds, sells or uses AI systems in the European Union, including those based outside the EU whose systems are used there. Because <strong>computer vision</strong> often involves cameras pointed at people, many businesses using video analytics are asking the same question: <em>does the AI Act apply to us, and what do we need to do?</em></p>
+
+<h2 id="timeline">The AI Act timeline</h2>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Date</th><th>What applies</th></tr></thead>
+  <tbody>
+    <tr><td>1 Aug 2024</td><td>The AI Act enters into force</td></tr>
+    <tr><td>2 Feb 2025</td><td>Prohibited AI practices banned; AI literacy obligations begin</td></tr>
+    <tr><td>2 Aug 2025</td><td>Rules for general-purpose AI models and governance apply</td></tr>
+    <tr><td>2 Aug 2026</td><td>Most remaining obligations, including high-risk systems listed in Annex III</td></tr>
+    <tr><td>2 Aug 2027</td><td>High-risk AI that is a safety component of regulated products (Annex I)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>The European Commission has proposed adjustments that could delay some high-risk obligations, so check the latest official position before you finalise compliance plans.</p>
+
+<h2 id="risk-tiers">The four risk tiers, in plain English</h2>
+
+<ol>
+  <li><strong>Unacceptable risk (prohibited):</strong> practices considered a clear threat to people's rights.</li>
+  <li><strong>High risk:</strong> allowed, but subject to strict requirements, including risk management, data governance, documentation, human oversight, accuracy and robustness, and registration.</li>
+  <li><strong>Limited risk (transparency):</strong> people must be told when they're interacting with or being analysed by certain AI systems.</li>
+  <li><strong>Minimal risk:</strong> no new obligations under the AI Act, though other laws such as GDPR still apply.</li>
+</ol>
+
+<h2 id="prohibited">Prohibited practices relevant to cameras</h2>
+
+<ul>
+  <li><strong>Untargeted scraping</strong> of facial images from the internet or CCTV footage to create or expand facial recognition databases.</li>
+  <li><strong>Emotion recognition in the workplace and in education</strong>, except for medical or safety reasons.</li>
+  <li><strong>Biometric categorisation</strong> that infers sensitive characteristics such as race, political opinions, religious beliefs or sexual orientation.</li>
+  <li><strong>Real-time remote biometric identification</strong> in publicly accessible spaces for law enforcement, apart from narrowly defined exceptions.</li>
+</ul>
+
+<p>Fines for prohibited practices can reach <strong>€35 million or 7% of global annual turnover</strong>, whichever is higher.</p>
+
+<h2 id="high-risk">When computer vision becomes "high-risk"</h2>
+
+<p>Categories in Annex III that commonly involve cameras include:</p>
+<ul>
+  <li><strong>Remote biometric identification</strong> (such as facial recognition watchlists), apart from simple verification that a person is who they claim to be.</li>
+  <li><strong>Biometric categorisation and emotion recognition</strong>, where not prohibited.</li>
+  <li><strong>Employment and worker management:</strong> AI used to monitor and evaluate workers' performance and behaviour.</li>
+  <li><strong>Critical infrastructure:</strong> AI used as a safety component in managing infrastructure such as road traffic or utilities.</li>
+</ul>
+
+<p>Separately, vision systems that act as safety components of regulated products such as machinery can be high-risk under Annex I.</p>
+
+<h2 id="use-case-map">Mapping common computer vision use cases</h2>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Use case</th><th>Likely category*</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td>Product defect detection</td><td>Minimal</td><td>No people involved; quality assurance</td></tr>
+    <tr><td>Anonymous people counting, queue length</td><td>Minimal</td><td>No identification or profiling of individuals</td></tr>
+    <tr><td>Self-checkout non-scan detection</td><td>Usually minimal</td><td>Detects actions and items, not identity; GDPR still applies</td></tr>
+    <tr><td>PPE and safety-zone alerts</td><td>Minimal to high</td><td>Higher risk if used to evaluate or discipline individual workers</td></tr>
+    <tr><td>Monitoring cashier performance or behaviour</td><td>Potentially high</td><td>May fall under worker monitoring and evaluation</td></tr>
+    <tr><td>Facial recognition watchlists in stores</td><td>High (and heavily restricted)</td><td>Remote biometric identification; GDPR special-category data</td></tr>
+    <tr><td>Detecting employees' emotions</td><td>Prohibited</td><td>Emotion recognition in the workplace</td></tr>
+  </tbody>
+</table>
+</div>
+<p><small>*Indicative only. Classification depends on the exact purpose, context and deployment.</small></p>
+
+<h2 id="gdpr">Don't forget GDPR</h2>
+
+<p>Even when a use case is "minimal risk" under the AI Act, video of identifiable people is personal data under GDPR. That usually means you need a lawful basis, a data protection impact assessment (DPIA) for systematic monitoring, clear signage and notices, data minimisation, defined retention periods and appropriate security. Biometric data used to identify people is special-category data with even stricter conditions.</p>
+
+<h2 id="practical-steps">Practical steps for businesses using computer vision</h2>
+
+<ol>
+  <li><strong>Inventory your AI systems</strong>, including vendor-supplied video analytics, and record their purpose.</li>
+  <li><strong>Classify each use case</strong> by AI Act risk tier and check for prohibited practices.</li>
+  <li><strong>Prefer privacy-preserving designs:</strong> detect behaviour, not identity; mask faces at the source; process on the edge.</li>
+  <li><strong>Keep humans in the loop</strong> for any decision that affects an individual.</li>
+  <li><strong>Document</strong> data sources, accuracy testing, limitations and oversight processes.</li>
+  <li><strong>Train staff</strong> who operate AI systems (AI literacy is already an obligation).</li>
+  <li><strong>Ask vendors</strong> for their AI Act classification, technical documentation and conformity plans.</li>
+</ol>
+
+<h2 id="how-we-build">How ComputeSight designs for compliance</h2>
+
+<p>Our systems are designed to keep you in the lower-risk tiers wherever possible. They analyse actions and objects rather than identities, use no facial recognition by default, process on the edge with privacy masking, keep data only briefly, log every decision for audit, and have a person review every alert. Read more about our approach on our <a href="../../index.html#trust">privacy and trust</a> page, or see how this applies to <a href="../ai-loss-prevention-computer-vision-retail-shrink/index.html">AI loss prevention</a>.</p>
+
+<p>Planning a computer vision project in the EU? <a href="../../index.html#contact">Talk to us</a> about a privacy-first design from day one.</p>

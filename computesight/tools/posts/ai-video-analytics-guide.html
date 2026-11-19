@@ -1,0 +1,106 @@
+<div class="takeaways">
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>AI video analytics uses computer vision to turn camera footage into structured events, metrics and searchable data, as things happen.</li>
+    <li>The field has moved from basic motion detection to deep learning, and now to vision-language models you can question in plain English.</li>
+    <li>The best returns come from narrow, high-value questions: theft at the checkout, safety incidents, defects, queues and congestion.</li>
+    <li>Judge a platform on accuracy on <em>your</em> footage, how well it integrates, where it runs (edge or cloud) and how it handles privacy.</li>
+  </ul>
+</div>
+
+<p>There are now more security cameras in the world than people can ever watch. Most of that footage is recorded, stored for a few weeks and deleted without anyone seeing it. <strong>AI video analytics</strong> changes that by letting software watch, understand and act on video for you.</p>
+
+<p>In 2026 the category is changing quickly. Vision-language models, cheaper edge AI hardware and new regulation are reshaping what's possible and what's sensible. This guide covers what AI video analytics is, how it works, where it pays off and how to choose a platform.</p>
+
+<h2 id="what-is-ai-video-analytics">What is AI video analytics?</h2>
+
+<p>AI video analytics (also called intelligent video analytics or IVA) is software that applies <strong>computer vision</strong> and machine learning to video streams to detect objects, people, vehicles, behaviours and events automatically.</p>
+
+<p>Instead of a person scrubbing through hours of footage, the system produces:</p>
+<ul>
+  <li><strong>Real-time alerts:</strong> "someone entered the restricted zone", "an item wasn't scanned at lane 4".</li>
+  <li><strong>Metrics:</strong> footfall, dwell time, queue length, line throughput, player speed.</li>
+  <li><strong>Searchable data:</strong> "show me every red van at gate 2 last Tuesday".</li>
+  <li><strong>Evidence:</strong> short clips attached to each event for review.</li>
+</ul>
+
+<h2 id="three-generations">Three generations of video analytics</h2>
+
+<h3>1. Rule-based motion detection</h3>
+<p>Early systems flagged changes in pixels. They were cheap but noisy: shadows, rain, swaying trees and headlights all set off alarms, so operators quickly learned to ignore them.</p>
+
+<h3>2. Deep learning detection and tracking</h3>
+<p>From the mid-2010s, convolutional and then transformer-based detectors made it possible to reliably recognise <em>what</em> is in the frame, such as people, vehicles, products and PPE, and to track them over time. This generation powers most production systems today, including loss prevention, traffic analytics and industrial inspection.</p>
+
+<h3>3. Vision-language and agentic analytics</h3>
+<p>The newest generation adds <strong>vision-language models (VLMs)</strong> that connect images and text. You can search footage in natural language, ask open questions about a scene, and get written summaries of what happened. Combined with AI agents, these systems can check an alert, gather context from other cameras and draft an incident report. We explain the strengths and limits in our <a href="../vision-language-models-video-analytics/index.html">guide to VLMs for video</a>.</p>
+
+<h2 id="how-it-works">How AI video analytics works</h2>
+
+<ol>
+  <li><strong>Ingest:</strong> video streams arrive over RTSP, ONVIF, SRT or from a video management system (VMS).</li>
+  <li><strong>Decode and sample:</strong> frames are decoded, often on a GPU, and sampled at the rate the task needs. Safety and sports need high frame rates; occupancy counting doesn't.</li>
+  <li><strong>Perceive:</strong> models detect, segment, classify, estimate pose or read text (OCR) in each frame.</li>
+  <li><strong>Track and reason:</strong> tracking links detections over time; rules or learned models turn movement into events such as "entered zone", "dwelled 5 minutes" or "left without paying".</li>
+  <li><strong>Act:</strong> events trigger alerts, dashboards, API calls or physical actions such as rejecting a part or opening a gate.</li>
+  <li><strong>Learn:</strong> feedback from reviewers is used to retrain models and reduce false alarms over time.</li>
+</ol>
+
+<p>Where those steps run, on-site at the edge or in the cloud, is one of the biggest design decisions. See our <a href="../edge-ai-vs-cloud-computer-vision/index.html">edge AI vs cloud comparison</a> for the trade-offs.</p>
+
+<h2 id="use-cases">Where AI video analytics pays off</h2>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Industry</th><th>High-value use cases</th><th>Typical KPI</th></tr></thead>
+  <tbody>
+    <tr><td>Retail</td><td>Self-checkout non-scans, sweethearting, queue alerts, out-of-stocks</td><td>Shrink %, queue time, on-shelf availability</td></tr>
+    <tr><td>Manufacturing</td><td>Defect detection, assembly verification, PPE and safety zones</td><td>Defect escape rate, OEE, incidents</td></tr>
+    <tr><td>Logistics</td><td>Parcel damage, dock utilisation, forklift–pedestrian near-misses</td><td>Damage claims, turnaround time</td></tr>
+    <tr><td>Sports &amp; media</td><td>Player and ball tracking, automated highlights, broadcast graphics</td><td>Analyst hours saved, content output</td></tr>
+    <tr><td>Smart cities</td><td>Traffic counts, incident detection, parking occupancy, ANPR</td><td>Congestion, response time</td></tr>
+    <tr><td>Construction &amp; energy</td><td>PPE compliance, progress tracking, asset inspection</td><td>Incident rate, inspection cost</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>For a closer look at the biggest retail use case, read <a href="../ai-loss-prevention-computer-vision-retail-shrink/index.html">AI loss prevention: how computer vision is cutting retail shrink</a>.</p>
+
+<h2 id="natural-language-search">Natural-language video search: the 2026 game-changer</h2>
+
+<p>The most visible change this year is <strong>natural-language search</strong>. Instead of picking from fixed object classes, operators type what they're looking for:</p>
+<ul>
+  <li>"Person in a yellow hi-vis jacket near loading bay 3 after 10 pm"</li>
+  <li>"White van reversing into the fire lane"</li>
+  <li>"Customer leaving with an unbagged TV"</li>
+</ul>
+
+<p>Under the hood, frames or clips are converted into <strong>embeddings</strong>, numerical representations that capture what's in them, and stored in a vector index. A text query is embedded the same way, and the closest matches come back in seconds. Investigations that used to take hours of scrubbing now take minutes.</p>
+
+<h2 id="choosing-a-platform">How to evaluate an AI video analytics platform</h2>
+
+<ol>
+  <li><strong>Accuracy on your footage.</strong> Demo videos are always clean. Ask for a proof of concept on your own cameras, lighting and edge cases, with precision and recall reported.</li>
+  <li><strong>False-alarm rate.</strong> One bad alert an hour per camera quickly becomes thousands a day across a large estate. Ask how false alarms are measured and reduced.</li>
+  <li><strong>Deployment options.</strong> Edge, cloud, on-premises or hybrid, and whether it works with your existing cameras and VMS.</li>
+  <li><strong>Integration.</strong> APIs, webhooks and connectors to POS, access control, ERP, MES or ticketing.</li>
+  <li><strong>Customisation.</strong> Can new object classes or behaviours be added for your business? How long does that take?</li>
+  <li><strong>Privacy and compliance.</strong> Masking, retention, access control, audit logs, and alignment with GDPR and the <a href="../eu-ai-act-computer-vision-compliance/index.html">EU AI Act</a>.</li>
+  <li><strong>Total cost of ownership.</strong> Licences, hardware, bandwidth, cloud compute and support. See our <a href="../computer-vision-project-cost/index.html">computer vision cost guide</a>.</li>
+</ol>
+
+<h2 id="privacy">Privacy, ethics and regulation</h2>
+
+<p>Video analytics often involves people, so trust has to be designed in. Good practice includes analysing behaviour rather than identity, avoiding facial recognition unless it's lawful and necessary, processing on the edge where possible, keeping data only as long as needed, and making sure a human reviews consequential decisions. In Europe, the AI Act now sits alongside GDPR, and some uses, such as emotion recognition in the workplace, are prohibited outright.</p>
+
+<h2 id="getting-started">Getting started</h2>
+
+<ol>
+  <li><strong>Pick one painful, measurable problem</strong> with a clear owner.</li>
+  <li><strong>Check your cameras.</strong> Angle and placement matter more than resolution.</li>
+  <li><strong>Run a 4–8 week pilot</strong> with a baseline and control sites.</li>
+  <li><strong>Design the response workflow</strong> before switching alerts on.</li>
+  <li><strong>Scale what works</strong>, then add new use cases on the same infrastructure.</li>
+</ol>
+
+<p>AI video analytics is no longer experimental. It's quickly becoming the way organisations get value from the cameras they already own. To see it in action, try the <a href="../../index.html#lab">ComputeSight live demo</a> or <a href="../../index.html#contact">book a session with our team</a>.</p>

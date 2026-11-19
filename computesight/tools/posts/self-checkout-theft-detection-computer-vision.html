@@ -1,0 +1,88 @@
+<div class="takeaways">
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>Self-checkout loss comes from a handful of repeatable behaviours, and most of them are visible to an overhead camera.</li>
+    <li>Computer vision detects non-scans, product switching and produce mis-keying by comparing what it sees with what was scanned.</li>
+    <li>The response matters as much as the detection: a gentle on-screen replay often recovers the item without any confrontation.</li>
+    <li>Judge success on loss per lane, alert precision and customer friction, not just the number of alerts.</li>
+  </ul>
+</div>
+
+<p>Self-checkout has become standard in grocery and general retail. Customers like the speed and retailers like the labour savings. But removing the cashier also removes the main loss control at the point of sale. Many retailers now find that their self-checkout lanes lose noticeably more than staffed ones.</p>
+
+<p>The good news is that self-checkout is one of the best places to use <strong>computer vision</strong>. The area is small and well lit, the camera angle is fixed, and every action can be checked against the transaction log.</p>
+
+<h2 id="why-sco-is-different">Why self-checkout loss is different</h2>
+
+<p>At a staffed till, a trained employee scans each item. At self-checkout, the customer does it, and customers make mistakes. Barcodes don't read the first time, produce codes are hard to find, and people get distracted by children or phones. A smaller group of shoppers take advantage of the lack of supervision on purpose.</p>
+
+<p>That mix matters. <strong>A good self-checkout system has to handle honest mistakes and deliberate theft at the same time</strong>, without treating every customer like a suspect.</p>
+
+<h2 id="common-behaviours">The most common self-checkout loss behaviours</h2>
+
+<h3>Non-scans (skip-scanning)</h3>
+<p>An item goes from the basket to the bagging area without passing over the scanner, or passes over it without a successful read. This is the most common and most costly behaviour, whether deliberate or accidental.</p>
+
+<h3>Barcode and product switching</h3>
+<p>A cheaper barcode is scanned, perhaps peeled off another product or from a second identical-looking item, while an expensive item is bagged.</p>
+
+<h3>Produce mis-keying (the "banana trick")</h3>
+<p>Weighed items are entered as a cheaper product, such as premium steak keyed in as bananas. Weight checks alone can't catch this when both are priced by weight.</p>
+
+<h3>Bag stuffing and basket under-bagging</h3>
+<p>Items are left in a trolley's bottom tray, hidden in a personal bag, or covered by other goods so they're never presented for scanning.</p>
+
+<h3>Weight-scale and system manipulation</h3>
+<p>Pressing on the bagging scale, cancelling items after scanning, or pressing "skip bagging" repeatedly to avoid weight checks.</p>
+
+<h2 id="how-cv-detects">How computer vision detects each behaviour</h2>
+
+<p>A camera mounted above each lane gives a clear, unobstructed view of the basket, the scanner and the bagging area. Several models then work together:</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Behaviour</th><th>What the model sees</th><th>Signal used</th></tr></thead>
+  <tbody>
+    <tr><td>Non-scan</td><td>Item tracked from basket to bag without crossing the scan zone</td><td>Hand and item tracking + no POS scan event in the time window</td></tr>
+    <tr><td>Product switching</td><td>Visual product class differs from the scanned SKU</td><td>Product recognition model vs. POS line item</td></tr>
+    <tr><td>Produce mis-keying</td><td>Meat, fish or premium produce on the scale</td><td>Produce classifier vs. the PLU code entered</td></tr>
+    <tr><td>Under-bagging</td><td>Items remaining in the trolley or a personal bag at payment</td><td>Object detection on the trolley and bag regions at the end of the transaction</td></tr>
+    <tr><td>Scale manipulation</td><td>Hand pressure on the scale, repeated "skip bagging"</td><td>Pose and hand-region analysis + POS event pattern</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>The key ingredient is <strong>tight time synchronisation between video and POS events</strong>. If the clocks drift by even a second or two, the system can't reliably say whether a scan "belongs" to the item in the customer's hand.</p>
+
+<h2 id="interventions">Designing the right intervention</h2>
+
+<p>Detection is only half the job. What happens next decides both the recovery rate and the customer experience. We usually recommend a tiered response:</p>
+
+<ol>
+  <li><strong>On-screen replay.</strong> The self-checkout screen shows a two-second clip: "It looks like this item wasn't scanned. Would you like to scan it now?" Most honest mistakes are fixed here, and many deliberate ones too, without any staff involvement.</li>
+  <li><strong>Attendant alert.</strong> If the prompt is ignored, the self-checkout attendant receives the clip on a handheld device and can offer help.</li>
+  <li><strong>Security escalation.</strong> Only repeated or high-value events go to security staff, always with video evidence and in line with your store's policy.</li>
+</ol>
+
+<blockquote><p>The best self-checkout systems feel like help, not surveillance. Friendly wording and quick, specific evidence prevent conflict and protect your brand.</p></blockquote>
+
+<h2 id="metrics">Metrics that matter</h2>
+
+<ul>
+  <li><strong>Loss per lane per week</strong>, compared with control lanes or stores.</li>
+  <li><strong>Alert precision:</strong> aim for most alerts to be confirmed by reviewers. Low precision means staff will tune the system out.</li>
+  <li><strong>Self-correction rate:</strong> how often customers fix the issue after an on-screen prompt.</li>
+  <li><strong>Transaction time impact:</strong> how many seconds interventions add to the average transaction.</li>
+  <li><strong>Customer complaints</strong> and staff feedback, tracked from day one.</li>
+</ul>
+
+<h2 id="rollout-tips">Rollout tips from real deployments</h2>
+
+<ul>
+  <li><strong>Camera placement beats camera count.</strong> One overhead camera per lane, angled to see the basket, scanner and bagging area, outperforms several wide shots.</li>
+  <li><strong>Start in "silent mode".</strong> Run for two to three weeks with alerts logged but not shown, to measure baseline loss and tune thresholds.</li>
+  <li><strong>Involve store teams early.</strong> Attendants who understand why alerts fire will act on them consistently.</li>
+  <li><strong>Process on the edge.</strong> Lane-level decisions need sub-second latency, which is a strong case for <a href="../edge-ai-vs-cloud-computer-vision/index.html">edge AI over cloud processing</a>.</li>
+</ul>
+
+<p>Self-checkout is here to stay. With computer vision, it doesn't have to be your biggest source of shrink. For the wider picture, see our <a href="../ai-loss-prevention-computer-vision-retail-shrink/index.html">complete guide to AI loss prevention</a>.</p>

@@ -1,0 +1,101 @@
+<div class="takeaways">
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>AI loss prevention uses computer vision to watch for theft and errors as they happen, instead of reviewing CCTV after the loss has occurred.</li>
+    <li>The biggest wins usually come from self-checkout, the point of sale and high-risk aisles, where video can be checked against transaction data.</li>
+    <li>Good systems are judged on alert precision and recovered value, not on how many alerts they produce.</li>
+    <li>Privacy-first design (no facial recognition by default, edge processing, short retention) is both an ethical requirement and a practical one.</li>
+  </ul>
+</div>
+
+<p>Retail shrink, meaning inventory lost to theft, fraud, errors and damage, has always been a cost of doing business. What has changed is its scale and its shape. The US National Retail Federation's security surveys have put average shrink at around <strong>1.6% of sales</strong> in recent years. For a retailer turning over $50 million a year, that's roughly $800,000 walking out of the door.</p>
+
+<p>At the same time, stores have changed. There are more self-checkouts, fewer staff on the floor and more organised theft. Traditional loss prevention wasn't designed for this. <strong>AI loss prevention</strong>, built on computer vision, is how a growing number of retailers are catching up.</p>
+
+<h2 id="what-is-ai-loss-prevention">What is AI loss prevention?</h2>
+
+<p>AI loss prevention is the use of machine learning, especially <strong>computer vision</strong>, to detect behaviour linked to loss, such as items not being scanned, concealment, refund fraud or sweethearting, and to alert the right person while there's still time to act.</p>
+
+<p>In practice, it turns your existing CCTV cameras into sensors. Instead of storing hours of footage that nobody watches, every frame is analysed by models that understand people, hands, products, bags, scanners and checkout zones. When something doesn't add up, the system creates an event with a short video clip as evidence.</p>
+
+<blockquote><p>The shift is from <em>forensic</em> loss prevention (what happened last Tuesday?) to <em>preventive</em> loss prevention (what is happening at lane 4 right now?).</p></blockquote>
+
+<h2 id="why-traditional-lp-struggles">Why traditional loss prevention struggles</h2>
+
+<p>Most stores rely on a mix of security tags, guards, exception-based reporting from POS data and CCTV. Each has a blind spot:</p>
+
+<ul>
+  <li><strong>CCTV is passive.</strong> A typical store records thousands of camera-hours a week, but people review only a tiny fraction, usually after a loss has already been found.</li>
+  <li><strong>POS exception reports lack context.</strong> They can flag a cashier with lots of voids, but they can't show you whether the voids were genuine.</li>
+  <li><strong>Tags and guards don't scale.</strong> Tagging every product is impractical, and guards can only watch one area at a time.</li>
+  <li><strong>Self-checkout removes the human check.</strong> The customer becomes the cashier, and most loss controls were designed around a staffed lane.</li>
+</ul>
+
+<h2 id="how-it-works">How computer vision loss prevention works</h2>
+
+<p>Under the hood, a modern system is a pipeline of specialised models. At ComputeSight we break it into four stages.</p>
+
+<h3>1. Detect</h3>
+<p>Object detection models find the things that matter in each frame: people, hands, products, bags, trolleys, scanners and bagging areas. They're trained or fine-tuned on retail footage, so they cope with glare, cluttered shelves and awkward camera angles.</p>
+
+<h3>2. Track</h3>
+<p>Multi-object tracking links detections across frames, so the system knows that the hand holding a product at frame 120 is the same hand that put it in a bag at frame 160. Tracking is what turns pixels into <em>behaviour</em>.</p>
+
+<h3>3. Reconcile</h3>
+<p>This is the step that separates useful systems from noisy ones. The visual timeline is matched in real time against POS data, so an item that passed the scanner without a matching scan event, or a high-value product rung up as a cheap one, becomes a specific, explainable exception.</p>
+
+<h3>4. Alert and learn</h3>
+<p>Confirmed exceptions are pushed to staff handhelds, a self-checkout attendant screen or a central security team, along with a short evidence clip. Every time a reviewer marks an alert as correct or incorrect, that feedback is used to retrain the model, so false alerts fall over time.</p>
+
+<p>You can see a simplified version of this pipeline running in the <a href="../../index.html#lab">ComputeSight Live Vision Lab</a>.</p>
+
+<h2 id="use-cases">The highest-impact use cases</h2>
+
+<ul>
+  <li><strong>Self-checkout non-scans.</strong> Items that go from basket to bag without being scanned, deliberately or by mistake. This is often the single largest source of avoidable loss. We cover it in depth in our <a href="../self-checkout-theft-detection-computer-vision/index.html">guide to self-checkout theft detection</a>.</li>
+  <li><strong>Product switching.</strong> A cheap item is scanned or weighed while an expensive one is bagged. Vision models can classify the actual product and compare it with what was rung up.</li>
+  <li><strong>Sweethearting.</strong> A cashier "forgets" to scan items for friends or family. Reconciling video with each staffed lane's transactions surfaces the pattern.</li>
+  <li><strong>Concealment and shelf sweeps.</strong> Someone puts products into a bag or clothing, or clears a shelf of high-value goods in seconds.</li>
+  <li><strong>Refund and return fraud.</strong> Matching return transactions against video of the customer service desk.</li>
+  <li><strong>Organised retail crime (ORC).</strong> Spotting repeated patterns across stores, such as the same vehicles or the same methods, without needing to identify faces.</li>
+</ul>
+
+<p>Many retailers also find that the same cameras can measure queue length, out-of-stocks and footfall. Those operational wins often help pay for the project.</p>
+
+<h2 id="measuring-roi">Measuring ROI</h2>
+
+<p>The simplest way to model the value is:</p>
+
+<p><code>annual recovery = revenue × shrink rate × share of shrink addressable × reduction achieved</code></p>
+
+<p>Take a retailer with $50M in revenue and 1.6% shrink. If 70% of that shrink happens in areas the cameras cover, and the system reduces it by 35%, the annual recovery is about <strong>$196,000</strong>, before counting labour saved on investigations. You can try your own numbers with our <a href="../../index.html#loss-prevention">shrink savings estimator</a>.</p>
+
+<p>Beyond the headline figure, track these:</p>
+<ul>
+  <li><strong>Alert precision:</strong> the share of alerts that reviewers confirm. If this is low, staff will start ignoring the system.</li>
+  <li><strong>Intervention rate:</strong> how many alerts led to a recovery or a customer interaction.</li>
+  <li><strong>Loss per lane or per zone</strong> before and after, measured against control stores.</li>
+  <li><strong>Time to action:</strong> seconds from event to alert, and from alert to response.</li>
+</ul>
+
+<h2 id="privacy">Privacy and responsible use</h2>
+
+<p>Loss prevention involves watching customers and staff, so trust matters. The systems we build follow a few non-negotiable principles:</p>
+<ul>
+  <li><strong>Behaviour, not identity.</strong> Models detect actions and objects. Facial recognition is off by default and only considered where it's lawful, proportionate and clearly disclosed.</li>
+  <li><strong>Edge processing.</strong> Video is analysed on-site, and only short event clips leave the store. Read more in our <a href="../edge-ai-vs-cloud-computer-vision/index.html">edge vs cloud guide</a>.</li>
+  <li><strong>Minimal retention</strong> and clear signage, in line with GDPR and local regulations.</li>
+  <li><strong>A human always decides.</strong> AI flags; people verify. Most self-checkout errors are honest mistakes and should be handled as such.</li>
+</ul>
+
+<h2 id="getting-started">How to get started</h2>
+
+<ol>
+  <li><strong>Pick one problem and one metric.</strong> For example: "reduce self-checkout loss in 5 pilot stores by 25%."</li>
+  <li><strong>Audit your cameras.</strong> Most IP cameras at 720p or higher work. Self-checkout usually benefits from one overhead camera per lane.</li>
+  <li><strong>Connect the POS.</strong> Video alone finds suspicious behaviour; video plus POS finds actual losses.</li>
+  <li><strong>Run a controlled pilot</strong> for 6–8 weeks, with control stores, so the result holds up in the boardroom.</li>
+  <li><strong>Design the response.</strong> Decide who receives alerts and what they do, before the first alert fires.</li>
+</ol>
+
+<p>AI loss prevention isn't about watching people more. It's about watching the <em>right moments</em>, and giving your team the evidence to act quickly and fairly.</p>

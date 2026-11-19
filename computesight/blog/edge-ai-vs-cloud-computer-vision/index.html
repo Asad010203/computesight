@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edge AI vs Cloud for Computer Vision: How to Choose | ComputeSight</title>
+  <meta name="description" content="Edge AI vs cloud for computer vision: latency, bandwidth, privacy and cost compared, with the hybrid architecture most production systems use." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://www.computesight.ai/blog/edge-ai-vs-cloud-computer-vision/" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:site_name" content="ComputeSight" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Edge AI vs Cloud for Computer Vision: How to Choose | ComputeSight" />
+  <meta property="og:description" content="Edge AI vs cloud for computer vision: latency, bandwidth, privacy and cost compared, with the hybrid architecture most production systems use." />
+  <meta property="og:url" content="https://www.computesight.ai/blog/edge-ai-vs-cloud-computer-vision/" />
+  <meta property="og:image" content="https://www.computesight.ai/assets/og/edge-ai-vs-cloud-computer-vision.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Edge AI vs Cloud for Computer Vision: How to Choose | ComputeSight" />
+  <meta name="twitter:description" content="Edge AI vs cloud for computer vision: latency, bandwidth, privacy and cost compared, with the hybrid architecture most production systems use." />
+  <meta name="twitter:image" content="https://www.computesight.ai/assets/og/edge-ai-vs-cloud-computer-vision.png" />
+  <meta property="article:published_time" content="2026-11-18" />
+  <meta property="article:modified_time" content="2026-11-18" />
+  <meta property="article:section" content="Engineering" />
+  <meta property="article:tag" content="edge AI vs cloud" />
+  <meta property="article:tag" content="edge computer vision" />
+  <meta property="article:tag" content="edge AI" />
+  <meta property="article:tag" content="video analytics architecture" />
+  <meta property="article:tag" content="NVIDIA Jetson" />
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <link rel="alternate" type="application/rss+xml" title="ComputeSight Insights" href="../../blog/feed.xml" />
+  <link rel="preload" href="../../assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Edge AI vs Cloud: Where Should Your Computer Vision Run?", "description": "Edge AI vs cloud for computer vision: latency, bandwidth, privacy and cost compared, with the hybrid architecture most production systems use.", "image": ["https://www.computesight.ai/assets/og/edge-ai-vs-cloud-computer-vision.png"], "datePublished": "2026-11-18", "dateModified": "2026-11-18", "author": {"@type": "Organization", "name": "ComputeSight", "url": "https://www.computesight.ai/", "logo": {"@type": "ImageObject", "url": "https://www.computesight.ai/assets/logo-512.png", "width": 512, "height": 512}}, "publisher": {"@type": "Organization", "name": "ComputeSight", "url": "https://www.computesight.ai/", "logo": {"@type": "ImageObject", "url": "https://www.computesight.ai/assets/logo-512.png", "width": 512, "height": 512}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.computesight.ai/blog/edge-ai-vs-cloud-computer-vision/"}, "url": "https://www.computesight.ai/blog/edge-ai-vs-cloud-computer-vision/", "articleSection": "Engineering", "keywords": "edge AI vs cloud, edge computer vision, edge AI, video analytics architecture, NVIDIA Jetson", "wordCount": 827, "inLanguage": "en"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.computesight.ai/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.computesight.ai/blog/"}, {"@type": "ListItem", "position": 3, "name": "Edge AI vs Cloud: Where Should Your Computer Vision Run?", "item": "https://www.computesight.ai/blog/edge-ai-vs-cloud-computer-vision/"}]}</script>
+</head>
+<body data-root="../../">
+  <a class="skip" href="#top">Skip to content</a>
+  <header class="nav" id="nav">
+    <a href="../../index.html" class="brand" aria-label="ComputeSight home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16s5-8.5 13-8.5S29 16 29 16s-5 8.5-13 8.5S3 16 3 16z"/><circle cx="16" cy="16" r="4.2"/></svg><span>Compute<b>Sight</b></span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <div class="dd">
+        <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-solutions">Solutions <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dd-menu" id="dd-solutions">
+          <a href="../../solutions/computer-vision/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span><b>Computer Vision Services</b><small>Detection, tracking, OCR &amp; pose</small></span></a>
+          <a href="../../solutions/loss-prevention/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b>AI Loss Prevention</b><small>Self-checkout, POS &amp; theft detection</small></span></a>
+          <a href="../../solutions/sports-analytics/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 5h-5L8 10z"/></svg></span><span><b>Sports Analytics</b><small>Player &amp; ball tracking from video</small></span></a>
+          <a href="../../solutions/custom-ai/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg></span><span><b>Custom AI Solutions</b><small>Bespoke models &amp; vision-language agents</small></span></a>
+          <a href="../../solutions/quality-inspection/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M5 20V9l5 3V9l5 3V5h4v15"/></svg></span><span><b>Quality Inspection</b><small>Automated visual defect detection</small></span></a>
+          <a class="dd-foot" href="../../index.html#lab">See all of it running in the live demo <span>→</span></a>
+        </div>
+      </div>
+      <a href="../../index.html#industries">Industries</a>
+      <a href="../../pricing/index.html">Pricing</a>
+      <a href="../../blog/index.html" class="current" aria-current="page">Blog</a>
+      <a href="../../about/index.html">About</a>
+      <a href="../../contact/index.html" class="btn btn-sm">Book a demo</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <main id="top">
+    <div class="progress" aria-hidden="true"></div>
+    <article>
+      <header class="page-head">
+        <div class="container">
+          <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Blog</a></li><li><span aria-current="page">Engineering</span></li></ol></nav>
+          <p class="eyebrow">Engineering</p>
+          <h1>Edge AI vs Cloud: Where Should Your Computer Vision Run?</h1>
+          <p class="lead">Edge AI vs cloud for computer vision: latency, bandwidth, privacy and cost compared, with the hybrid architecture most production systems use.</p>
+          <div class="post-meta">
+            <span>By the ComputeSight team</span>
+            <span><time datetime="2026-11-18">18 November 2026</time></span>
+            <span>4 min read</span>
+          </div>
+        </div>
+      </header>
+      <div class="container">
+        <div class="cover" style="--accent-c:#7aa2ff" aria-hidden="true"><span class="cb" style="left:44.1%;top:38.3%;width:11.6%;height:43.8%"><b>edge · 38 ms</b></span><span class="cb" style="left:61.6%;top:30.3%;width:10.3%;height:40.3%"><b>stream 1080p</b></span><span class="cb" style="left:79.2%;top:39.5%;width:10.4%;height:42.9%"><b>event ↑</b></span><span class="cover-label">Engineering</span></div>
+        <div class="post-layout">
+          <nav class="toc" aria-label="Table of contents">
+            <p>On this page</p>
+            <ol>
+              <li><a href="#definitions">Edge AI and cloud AI, defined</a></li>
+              <li><a href="#comparison">Edge vs cloud: side by side</a></li>
+              <li><a href="#bandwidth-math">The bandwidth maths most projects underestimate</a></li>
+              <li><a href="#when-edge">When edge AI is the right choice</a></li>
+              <li><a href="#when-cloud">When the cloud is the right choice</a></li>
+              <li><a href="#hybrid">The hybrid pattern most teams end up with</a></li>
+              <li><a href="#hardware">Edge hardware options</a></li>
+              <li><a href="#decision-checklist">A quick decision checklist</a></li>
+            </ol>
+          </nav>
+          <div class="prose">
+<div class="takeaways">
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>Edge AI runs computer vision models on devices near the camera; cloud AI streams video to remote servers for processing.</li>
+    <li>Edge wins on latency, bandwidth and privacy; cloud wins on elastic compute, central management and heavy batch workloads.</li>
+    <li>Continuous video is expensive to upload: 50 cameras can generate more than a terabyte of video a day.</li>
+    <li>Most production systems are hybrid: inference at the edge, with management, analytics and retraining in the cloud.</li>
+  </ul>
+</div>
+
+<p>One of the first architecture decisions in any <strong>computer vision</strong> project is where the models will run. Will video be processed on devices in the store, factory or stadium (the <strong>edge</strong>), or streamed to servers in the <strong>cloud</strong>?</p>
+
+<p>The answer affects cost, speed, privacy and how easily the system scales. This guide sets out the trade-offs and offers a practical way to decide.</p>
+
+<h2 id="definitions">Edge AI and cloud AI, defined</h2>
+
+<p><strong>Edge AI</strong> means running inference on hardware physically close to the cameras: a small accelerator box in a comms cupboard, a GPU server on-site, or even the camera itself. Video is analysed locally, and only results (events, counts, short clips) are sent onward.</p>
+
+<p><strong>Cloud AI</strong> means sending video or images to data centres where models run on shared, scalable GPU infrastructure. Results come back over the network.</p>
+
+<h2 id="comparison">Edge vs cloud: side by side</h2>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Factor</th><th>Edge AI</th><th>Cloud AI</th></tr></thead>
+  <tbody>
+    <tr><td>Latency</td><td>Milliseconds; no network round trip</td><td>Depends on uplink and distance; typically hundreds of ms or more</td></tr>
+    <tr><td>Bandwidth</td><td>Minimal; only events and clips leave the site</td><td>High; continuous upload of every stream</td></tr>
+    <tr><td>Privacy</td><td>Raw video stays on premises</td><td>Video leaves the site; needs stronger governance</td></tr>
+    <tr><td>Resilience</td><td>Keeps working if the internet drops</td><td>Stops if connectivity is lost</td></tr>
+    <tr><td>Compute flexibility</td><td>Fixed by on-site hardware</td><td>Effectively unlimited; scale on demand</td></tr>
+    <tr><td>Upfront cost</td><td>Hardware per site</td><td>Low; pay as you go</td></tr>
+    <tr><td>Running cost</td><td>Low once deployed</td><td>Ongoing compute, storage and egress fees</td></tr>
+    <tr><td>Fleet management</td><td>Needs remote device management</td><td>Centralised by default</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="bandwidth-math">The bandwidth maths most projects underestimate</h2>
+
+<p>A single 1080p camera stream encoded with H.264 typically uses about <strong>2–4 Mbps</strong>. That sounds small until you multiply it:</p>
+
+<ul>
+  <li>50 cameras × 3 Mbps = <strong>150 Mbps</strong> of continuous upload.</li>
+  <li>150 Mbps over 24 hours ≈ <strong>1.6 TB of video per day</strong>, per site.</li>
+</ul>
+
+<p>Few retail stores, warehouses or sports grounds have that much spare upload capacity, and storing and processing that volume in the cloud adds up quickly. This is the main reason real-time, multi-camera use cases such as <a href="../ai-loss-prevention-computer-vision-retail-shrink/index.html">loss prevention</a> and <a href="../self-checkout-theft-detection-computer-vision/index.html">self-checkout monitoring</a> are almost always processed at the edge.</p>
+
+<h2 id="when-edge">When edge AI is the right choice</h2>
+<ul>
+  <li><strong>Real-time decisions:</strong> self-checkout prompts, safety interlocks, rejecting defects on a production line.</li>
+  <li><strong>Many cameras per site</strong> where bandwidth would be prohibitive.</li>
+  <li><strong>Sensitive environments:</strong> healthcare, workplaces and anywhere raw footage shouldn't leave the building.</li>
+  <li><strong>Unreliable connectivity:</strong> remote sites, vehicles, drones and stadiums on match day.</li>
+</ul>
+
+<h2 id="when-cloud">When the cloud is the right choice</h2>
+<ul>
+  <li><strong>Batch and retrospective analysis:</strong> processing archived footage or full sports matches after the event.</li>
+  <li><strong>Low camera counts</strong> or event-triggered images rather than continuous video.</li>
+  <li><strong>Very large models</strong>, such as vision-language models that answer open questions about footage, which are impractical on small devices.</li>
+  <li><strong>Fast experimentation</strong> during a proof of concept, before hardware is chosen.</li>
+</ul>
+
+<h2 id="hybrid">The hybrid pattern most teams end up with</h2>
+
+<p>In practice, the question is rarely "edge <em>or</em> cloud" but "which parts where?" A typical production architecture looks like this:</p>
+
+<ol>
+  <li><strong>Edge:</strong> video decoding, detection, tracking and real-time rules run on-site. Alerts fire locally in milliseconds.</li>
+  <li><strong>Edge to cloud:</strong> only structured events, metrics and short evidence clips are uploaded.</li>
+  <li><strong>Cloud:</strong> dashboards, cross-site analytics, alert review, model training and fleet management.</li>
+  <li><strong>Cloud to edge:</strong> improved models are pushed back to devices over the air, with staged rollouts and rollback.</li>
+</ol>
+
+<blockquote><p>Run inference where the data is, and do the learning where the data comes together.</p></blockquote>
+
+<h2 id="hardware">Edge hardware options</h2>
+
+<ul>
+  <li><strong>NVIDIA Jetson modules:</strong> a popular, flexible choice with a mature software stack (CUDA, TensorRT, DeepStream).</li>
+  <li><strong>Dedicated AI accelerators</strong> such as Hailo and Google Coral: very power-efficient for well-optimised models.</li>
+  <li><strong>On-prem GPU servers:</strong> for sites with dozens of cameras or heavier models.</li>
+  <li><strong>Smart cameras</strong> with built-in NPUs: good for simple, single-camera tasks.</li>
+</ul>
+
+<p>Getting the most from edge hardware means optimising models through <strong>quantisation</strong> (FP16 or INT8), pruning, efficient architectures and runtime compilers such as TensorRT. Done well, this can multiply throughput on the same device with little loss of accuracy.</p>
+
+<h2 id="decision-checklist">A quick decision checklist</h2>
+
+<ol>
+  <li>Does the use case need a response in under a second? → <strong>Edge</strong>.</li>
+  <li>Are there more than a handful of continuous streams per site? → <strong>Edge</strong>.</li>
+  <li>Must raw video stay on premises? → <strong>Edge</strong>.</li>
+  <li>Is the work batch-based, occasional or very model-heavy? → <strong>Cloud</strong>.</li>
+  <li>Do you need cross-site dashboards, retraining and fleet updates? → <strong>Cloud, as part of a hybrid</strong>.</li>
+</ol>
+
+<p>ComputeSight deploys the same pipelines to the edge, the cloud or both, behind one API. If you're weighing up options, <a href="../../index.html#contact">talk to our team</a> and we'll help you size it.</p>
+
+            <aside class="post-cta">
+              <h2>See it on your own footage</h2>
+              <p>Send us a sample clip and within 48 hours we'll reply with a feasibility assessment and a demo plan for your cameras.</p>
+              <a class="btn" href="../../contact/index.html">Book a demo <span aria-hidden="true">→</span></a>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="related" aria-labelledby="related-title">
+      <div class="container">
+        <h2 id="related-title">Keep reading</h2>
+        <div class="post-grid">
+          <a class="post-card" href="../ai-video-analytics-guide/index.html" data-cat="Computer Vision">
+            <div class="cover" style="--accent-c:#7aa2ff" aria-hidden="true"><span class="cb" style="left:48.0%;top:38.4%;width:11.9%;height:40.7%"><b>person 0.97</b></span><span class="cb" style="left:61.9%;top:25.5%;width:12.6%;height:27.1%"><b>vehicle 0.94</b></span><span class="cb" style="left:78.0%;top:43.3%;width:10.7%;height:38.2%"><b>event ↑</b></span><span class="cover-label">Computer Vision</span></div>
+            <div class="post-card-body">
+              <span class="cat">Computer Vision</span>
+              <h3>AI Video Analytics in 2026: What It Is, How It Works and Where It Pays Off</h3>
+              <p>What AI video analytics is, how it works, the highest-ROI use cases by industry, natural-language video search, and how to choose a platform in 2026.</p>
+              <span class="meta">18 November 2026 · 5 min read</span>
+            </div>
+          </a>
+          <a class="post-card" href="../vision-language-models-video-analytics/index.html" data-cat="AI Trends">
+            <div class="cover" style="--accent-c:#c4a7ff" aria-hidden="true"><span class="cb" style="left:46.0%;top:45.3%;width:11.6%;height:28.5%"><b>“hi-vis jacket?”</b></span><span class="cb" style="left:60.2%;top:39.5%;width:13.5%;height:39.7%"><b>yes · 0.91</b></span><span class="cb" style="left:79.9%;top:30.1%;width:10.1%;height:41.3%"><b>scaffold</b></span><span class="cover-label">AI Trends</span></div>
+            <div class="post-card-body">
+              <span class="cat">AI Trends</span>
+              <h3>Vision-Language Models for Video: What VLMs Can (and Can&#x27;t) Do Yet</h3>
+              <p>How vision-language models are changing computer vision: where VLMs shine, their limitations, and the detector + VLM cascade used in production video analytics.</p>
+              <span class="meta">18 November 2026 · 5 min read</span>
+            </div>
+          </a>
+          <a class="post-card" href="../semi-automated-offside-technology-explained/index.html" data-cat="Sports Analytics">
+            <div class="cover" style="--accent-c:#2dd4bf" aria-hidden="true"><span class="cb" style="left:47.4%;top:23.4%;width:10.6%;height:31.6%"><b>#9 offside</b></span><span class="cb" style="left:60.1%;top:33.6%;width:10.1%;height:29.8%"><b>kick 0.99</b></span><span class="cb" style="left:76.2%;top:28.3%;width:10.3%;height:31.6%"><b>#4 last def.</b></span><span class="cover-label">Sports Analytics</span></div>
+            <div class="post-card-body">
+              <span class="cat">Sports Analytics</span>
+              <h3>Semi-Automated Offside Technology Explained: How Computer Vision Makes the Call</h3>
+              <p>How semi-automated offside technology works: tracking cameras, 3D limb tracking, kick-point detection and VAR validation, and what clubs can learn from it.</p>
+              <span class="meta">18 November 2026 · 5 min read</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <a href="../../index.html" class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16s5-8.5 13-8.5S29 16 29 16s-5 8.5-13 8.5S3 16 3 16z"/><circle cx="16" cy="16" r="4.2"/></svg><span>Compute<b>Sight</b></span></a>
+          <p>Computer vision and custom AI that turns cameras into real-time decisions.</p>
+          <form class="newsletter" novalidate>
+            <label for="nl-email">Get our monthly vision AI briefing</label>
+            <div class="newsletter-row">
+              <input id="nl-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+              <button class="btn" type="submit">Subscribe</button>
+            </div>
+            <p class="newsletter-status" role="status"></p>
+          </form>
+        </div>
+        <nav class="footer-col" aria-label="Solutions">
+          <h4>Solutions</h4>
+          <a href="../../solutions/computer-vision/index.html">Computer Vision Services</a>
+          <a href="../../solutions/loss-prevention/index.html">AI Loss Prevention</a>
+          <a href="../../solutions/sports-analytics/index.html">Sports Analytics</a>
+          <a href="../../solutions/custom-ai/index.html">Custom AI Solutions</a>
+          <a href="../../solutions/quality-inspection/index.html">Quality Inspection</a>
+        </nav>
+        <nav class="footer-col" aria-label="Company">
+          <h4>Company</h4>
+          <a href="../../about/index.html">About</a>
+          <a href="../../careers/index.html">Careers</a>
+          <a href="../../pricing/index.html">Pricing</a>
+          <a href="../../contact/index.html">Contact</a>
+        </nav>
+        <nav class="footer-col" aria-label="Resources">
+          <h4>Resources</h4>
+          <a href="../../blog/index.html">Blog</a>
+          <a href="../../index.html#lab">Live demo</a>
+          <a href="../../index.html#developers">Developers</a>
+          <a href="../../index.html#faq">FAQ</a>
+        </nav>
+        <nav class="footer-col" aria-label="Legal">
+          <h4>Legal</h4>
+          <a href="../../legal/privacy/index.html">Privacy policy</a>
+          <a href="../../legal/terms/index.html">Terms of use</a>
+          <a href="../../legal/cookies/index.html">Cookie policy</a>
+          <button class="link-btn" type="button" data-cookie-settings>Cookie settings</button>
+        </nav>
+      </div>
+      <div class="footer-inner">
+        <p class="small">© <span id="year"></span> ComputeSight. All rights reserved.</p>
+        <div class="socials"><a href="../../blog/feed.xml" aria-label="RSS feed"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4a16 16 0 0116 16h-3A13 13 0 004 7zm0 6a10 10 0 0110 10h-3a7 7 0 00-7-7zm2 6a2 2 0 110 4 2 2 0 010-4z"/></svg></a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../js/config.js" defer></script>
+  <script src="../../js/main.js" defer></script>
+  <script src="../../js/blog.js" defer></script>
+</body>
+</html>

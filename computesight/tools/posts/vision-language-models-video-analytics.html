@@ -1,0 +1,102 @@
+<div class="takeaways">
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>Vision-language models (VLMs) understand images and video together with text, so you can ask open questions about footage instead of training a detector for every object.</li>
+    <li>They excel at flexible tasks: search, summaries, verifying alerts and rare "long-tail" events.</li>
+    <li>They're still slower and costlier than specialised detectors, and they can hallucinate, especially when counting, measuring or reasoning over long videos.</li>
+    <li>The winning pattern is a cascade: fast detectors watch everything, and VLMs examine the moments that matter.</li>
+  </ul>
+</div>
+
+<p>Few AI trends have changed computer vision as much as <strong>vision-language models</strong>. A few years ago, recognising a new object meant collecting and labelling thousands of images and training a dedicated model. Today you can show a VLM a frame and ask, "Is anyone on this scaffold not wearing a harness?" and often get a sensible answer straight away.</p>
+
+<p>That's a huge shift, but it's not magic. This guide explains what VLMs can and can't do for video analytics today, and how to use them in production systems that need to be reliable.</p>
+
+<h2 id="what-is-a-vlm">What is a vision-language model?</h2>
+
+<p>A VLM is a neural network trained on very large collections of images (and increasingly video) paired with text. It learns a shared representation of visual content and language, which lets it:</p>
+<ul>
+  <li><strong>Describe</strong> an image or clip in natural language.</li>
+  <li><strong>Answer questions</strong> about what it sees (visual question answering).</li>
+  <li><strong>Find</strong> images or moments that match a text description.</li>
+  <li><strong>Ground</strong> phrases to regions: "the person holding the red bag".</li>
+  <li><strong>Follow instructions</strong>, such as "Count the pallets and report any that are damaged."</li>
+</ul>
+
+<p>Some VLMs are general-purpose multimodal assistants. Others are smaller, specialised models designed for embedding and retrieval, or for open-vocabulary detection, where you supply the class names as text at run time.</p>
+
+<h2 id="vs-traditional-cv">How VLMs differ from traditional computer vision</h2>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th></th><th>Specialised detectors</th><th>Vision-language models</th></tr></thead>
+  <tbody>
+    <tr><td>Setup for a new task</td><td>Collect and label data, then train</td><td>Write a prompt; optionally fine-tune</td></tr>
+    <tr><td>Speed</td><td>Very fast; many streams per GPU</td><td>Slower; heavier compute per frame</td></tr>
+    <tr><td>Cost per frame</td><td>Very low</td><td>Significantly higher</td></tr>
+    <tr><td>Precision on known classes</td><td>Excellent and predictable</td><td>Good, but less consistent</td></tr>
+    <tr><td>Flexibility</td><td>Fixed set of classes</td><td>Open-ended questions and descriptions</td></tr>
+    <tr><td>Explanations</td><td>Boxes and scores</td><td>Natural-language reasoning</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="strengths">Where VLMs shine in video analytics</h2>
+
+<h3>Natural-language search</h3>
+<p>Embedding video frames and searching them with text turns hours of investigation into minutes: "forklift carrying a blue drum near the exit." This is now one of the most popular features in <a href="../ai-video-analytics-guide/index.html">AI video analytics platforms</a>.</p>
+
+<h3>Long-tail and rare events</h3>
+<p>Some events are too rare to collect enough training data for, such as a spill of a specific chemical, an unusual safety violation or a new theft method. A VLM can often recognise them from a description alone.</p>
+
+<h3>Alert verification</h3>
+<p>A fast detector raises a possible event, and a VLM reviews the clip and confirms, rejects or explains it. This can sharply cut the false alarms that cause operator fatigue.</p>
+
+<h3>Summaries and reports</h3>
+<p>"Summarise what happened at gate 3 between 2 and 3 am" or "Write an incident report for this clip" saves security and operations teams real time.</p>
+
+<h3>Rapid prototyping</h3>
+<p>VLMs let you test whether a camera <em>can</em> see what you need before you invest in a custom model. That makes them ideal for discovery and proofs of concept in <a href="../custom-computer-vision-solutions-guide/index.html">custom computer vision projects</a>.</p>
+
+<h2 id="limitations">Current limitations to plan around</h2>
+
+<ul>
+  <li><strong>Hallucination:</strong> VLMs can confidently describe things that aren't there. Never let one make a consequential decision without verification.</li>
+  <li><strong>Counting and measuring:</strong> exact counts of many small objects, precise distances and fine localisation remain weak spots compared with dedicated models.</li>
+  <li><strong>Temporal reasoning:</strong> understanding long videos and subtle sequences of events (for example, an item moved from basket to bag without being scanned) is improving but not yet reliable at scale.</li>
+  <li><strong>Latency and cost:</strong> running a large VLM on every frame of every camera is impractical. Even sampling one frame per second across hundreds of cameras adds up quickly.</li>
+  <li><strong>Consistency:</strong> small changes in wording or image quality can change answers, which makes careful prompt design and evaluation essential.</li>
+</ul>
+
+<h2 id="cascade">The cascade architecture: fast detectors + smart VLMs</h2>
+
+<p>In production, the most robust design combines both approaches:</p>
+
+<ol>
+  <li><strong>Always-on layer:</strong> lightweight detectors and trackers run on every stream at the edge, cheaply and in real time.</li>
+  <li><strong>Trigger:</strong> rules or anomaly scores select the small fraction of moments that matter.</li>
+  <li><strong>Reasoning layer:</strong> a VLM examines those clips to verify the event, add context and write a description.</li>
+  <li><strong>Human in the loop:</strong> operators see the clip, the explanation and the confidence, and their decisions feed back into training.</li>
+</ol>
+
+<blockquote><p>Use specialised models for <em>seeing</em> at scale, and VLMs for <em>understanding</em> the moments that matter.</p></blockquote>
+
+<h2 id="edge-vlms">Can VLMs run on the edge?</h2>
+
+<p>Increasingly, yes. Compact VLMs with a few billion parameters or fewer, combined with quantisation (INT8 or 4-bit) and modern edge GPUs, can now run on-site for triggered clips. That keeps sensitive video on premises and reduces cloud costs, while bigger models in the cloud handle complex reasoning and reporting.</p>
+
+<h2 id="evaluating">How to evaluate a VLM for your use case</h2>
+
+<ol>
+  <li><strong>Build a test set from your own footage</strong>, including hard negatives that look similar but aren't the event.</li>
+  <li><strong>Measure precision, recall and hallucination rate</strong>, not just whether the demo looks impressive.</li>
+  <li><strong>Test prompt robustness:</strong> rephrase questions and check that the answers stay consistent.</li>
+  <li><strong>Measure latency and cost</strong> at your real volume, not a single clip.</li>
+  <li><strong>Check where your data goes</strong> and whether a hosted model provider may retain it.</li>
+</ol>
+
+<h2 id="whats-next">What's next</h2>
+
+<p>Expect VLMs to get faster, better at reasoning across time and more tightly linked to AI agents that can take action, such as pulling footage from neighbouring cameras, checking access logs or opening a ticket. The direction is clear: video systems that you can talk to, and that can explain themselves.</p>
+
+<p>Want to see how a cascade of detectors and VLMs would work on your cameras? <a href="../../index.html#contact">Talk to the ComputeSight team</a>.</p>

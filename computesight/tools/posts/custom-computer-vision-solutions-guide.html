@@ -1,0 +1,96 @@
+<div class="takeaways">
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>Off-the-shelf vision products work well for common, well-defined problems; custom solutions win when your objects, environment or workflow are unusual.</li>
+    <li>Foundation models have sharply reduced the data and time needed, but the quality of your own data is still the deciding factor.</li>
+    <li>A successful project follows a clear lifecycle: define, collect, label, train, evaluate, deploy and monitor.</li>
+    <li>Most failures come from vague success criteria and production conditions that differ from the training data, not from the choice of model.</li>
+  </ul>
+</div>
+
+<p>Every business has a visual problem that no product quite solves: a defect only your line produces, a workflow only your warehouse runs, a question only your footage can answer. That's where <strong>custom computer vision solutions</strong> come in.</p>
+
+<p>This guide is for business and technical leaders deciding whether to build a custom vision system, and how to make sure it works once it leaves the lab.</p>
+
+<h2 id="build-vs-buy">Build vs buy: when custom makes sense</h2>
+
+<p>Start by checking whether an off-the-shelf product already fits. People counting, licence plate recognition and basic PPE detection are mature, well-served categories. Custom development is worth it when:</p>
+
+<ul>
+  <li><strong>Your objects are unusual:</strong> specific parts, proprietary products, rare defects or specialist equipment.</li>
+  <li><strong>Your environment is hard:</strong> extreme lighting, unusual camera angles, reflections, dust, or thermal or aerial imagery.</li>
+  <li><strong>Your logic is specific:</strong> the value comes from combining vision with your own data, such as POS, ERP, a manufacturing execution system or scheduling.</li>
+  <li><strong>You need to own the advantage:</strong> the capability is core to your product or a competitive edge.</li>
+  <li><strong>Off-the-shelf accuracy isn't good enough</strong> on your real footage.</li>
+</ul>
+
+<h2 id="foundation-models">How foundation models changed the game</h2>
+
+<p>A few years ago, a custom vision model often needed tens of thousands of labelled images and months of work. Today, large pre-trained models change the maths:</p>
+
+<ul>
+  <li><strong>Fine-tuning</strong> strong pre-trained detectors and segmenters often reaches useful accuracy with hundreds to low thousands of well-chosen images per class.</li>
+  <li><strong>Open-vocabulary detection and promptable segmentation</strong> speed up labelling dramatically: models suggest boxes and masks, and people correct them.</li>
+  <li><strong>Vision-language models</strong> can answer open questions about images and video ("Is the loading bay blocked?"), which is ideal for prototypes and long-tail cases.</li>
+  <li><strong>Synthetic data</strong> from 3D renders or generative models can fill gaps for rare events like specific defects or safety incidents.</li>
+</ul>
+
+<p>Foundation models don't remove the need for good data. They mean you need <em>less</em> of it, and that the data you do collect matters even more.</p>
+
+<h2 id="lifecycle">The custom computer vision project lifecycle</h2>
+
+<h3>1. Define the problem in measurable terms</h3>
+<p>"Detect defects" isn't a specification. "Detect scratches longer than 2 mm on parts moving at 1 m/s, with at least 95% recall and fewer than 1% false rejects" is. Agree what counts as success, and what happens when the model is wrong, before writing any code.</p>
+
+<h3>2. Collect representative data</h3>
+<p>Capture footage from the real cameras, in the real conditions: every shift, season, lighting change and product variant. A model trained on daytime data will struggle at night.</p>
+
+<h3>3. Label carefully</h3>
+<p>Write a labelling guide with clear examples of edge cases. Inconsistent labels are one of the most common hidden causes of poor accuracy. Use model-assisted labelling and review samples for quality.</p>
+
+<h3>4. Train and select models</h3>
+<p>Choose an architecture that fits the task (detection, segmentation, classification, pose or tracking) <em>and</em> the deployment target. A model that's perfect on a data-centre GPU but too slow for the <a href="../edge-ai-vs-cloud-computer-vision/index.html">edge device</a> it has to run on isn't finished.</p>
+
+<h3>5. Evaluate honestly</h3>
+<p>Test on a held-out set from different days, sites or cameras than the training data. Report precision and recall for each class and condition, not just one average number. Then watch the model on live footage before it makes any real decisions.</p>
+
+<h3>6. Deploy and integrate</h3>
+<p>Optimise the model (quantisation, compilation), package it, and connect it to the systems that act on its output: PLCs, POS, alerting tools, dashboards and APIs.</p>
+
+<h3>7. Monitor and improve</h3>
+<p>The real world changes. New products, new uniforms, a moved camera or a dirty lens all cause <strong>data drift</strong>. Monitor confidence levels and reviewer feedback, collect hard examples, and retrain on a regular schedule.</p>
+
+<h2 id="cost-drivers">What drives cost and timeline</h2>
+
+<ul>
+  <li><strong>Problem difficulty:</strong> subtle defects or rare events need more data and iteration than counting people.</li>
+  <li><strong>Data availability:</strong> existing footage speeds things up, while new camera installations slow them down.</li>
+  <li><strong>Accuracy requirements:</strong> each extra point of accuracy near the top costs more than the one before.</li>
+  <li><strong>Integration complexity:</strong> connecting to legacy systems is often more work than the model itself.</li>
+  <li><strong>Scale:</strong> one camera in a pilot is very different from 2,000 cameras across 300 sites.</li>
+</ul>
+
+<p>A typical engagement starts with a 4–8 week proof of concept on your own footage, which removes most of the uncertainty before any larger investment.</p>
+
+<h2 id="pitfalls">Common pitfalls to avoid</h2>
+
+<ul>
+  <li><strong>Demo-ware:</strong> impressive on curated clips, failing on real footage. Always test on unseen, messy data.</li>
+  <li><strong>No plan for errors:</strong> every model makes mistakes; design the human workflow around them.</li>
+  <li><strong>Ignoring the camera:</strong> moving or upgrading a camera is often cheaper than months of model work.</li>
+  <li><strong>One-and-done thinking:</strong> without monitoring and retraining, accuracy slowly degrades.</li>
+  <li><strong>Privacy as an afterthought:</strong> masking, retention and access control are far easier to design in than to add later.</li>
+</ul>
+
+<h2 id="vendor-questions">Questions to ask a computer vision partner</h2>
+
+<ol>
+  <li>Will you prove accuracy on <em>our</em> footage before we commit to a full rollout?</li>
+  <li>Who owns the trained models and the labelled data?</li>
+  <li>How do you handle drift, retraining and model updates in production?</li>
+  <li>Can the solution run on the edge, in the cloud and on-premises?</li>
+  <li>How do you protect privacy and meet regulatory requirements?</li>
+  <li>What does integration with our existing systems involve?</li>
+</ol>
+
+<p>Custom computer vision is no longer a moonshot. With the right problem definition, representative data and a production-minded partner, it's a predictable engineering project. If you have a problem a camera could solve, <a href="../../index.html#contact">tell us about it</a>. Our <a href="../../index.html#process">process</a> is built to answer "will this work?" in weeks.</p>

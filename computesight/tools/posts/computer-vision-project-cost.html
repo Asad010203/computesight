@@ -1,0 +1,108 @@
+<div class="takeaways">
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>Computer vision costs range from a few thousand dollars for an off-the-shelf integration to six or seven figures for complex, multi-site custom systems.</li>
+    <li>The biggest cost drivers are problem difficulty, data and labelling, integration and the number of cameras.</li>
+    <li>A fixed-scope proof of concept on your own footage is the cheapest way to remove risk before committing to a full rollout.</li>
+    <li>Ongoing costs, such as hardware, cloud, monitoring and retraining, often matter more over three years than the initial build.</li>
+  </ul>
+</div>
+
+<p class="disclaimer">The figures in this article are indicative ranges to help with early budgeting. Real costs vary widely with scope, region and requirements. The only reliable number is a quote based on your use case and footage.</p>
+
+<p>"How much does a computer vision project cost?" is one of the first questions every buyer asks, and one of the hardest to answer in a sentence. The honest answer is: it depends on what you need the cameras to understand, how accurate it must be and how many sites you're covering. This guide breaks down the components so you can build a realistic budget.</p>
+
+<h2 id="quick-answer">The quick answer</h2>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Project type</th><th>Indicative budget</th><th>Typical timeline</th></tr></thead>
+  <tbody>
+    <tr><td>Off-the-shelf analytics (people counting, ANPR) on existing cameras</td><td>Low thousands + subscription</td><td>Days to weeks</td></tr>
+    <tr><td>Proof of concept on your own footage</td><td>~$15k–$60k</td><td>4–8 weeks</td></tr>
+    <tr><td>Production pilot at 1–5 sites</td><td>~$40k–$150k</td><td>2–4 months</td></tr>
+    <tr><td>Multi-site rollout with custom models and integrations</td><td>$150k to $1M+</td><td>6–12+ months</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="cost-components">Where the money goes</h2>
+
+<h3>1. Discovery and solution design</h3>
+<p>Defining success metrics, auditing cameras and data, and designing the architecture. Skipping this is the most expensive saving you can make.</p>
+
+<h3>2. Data collection and labelling</h3>
+<p>Models learn from examples. Costs depend on how many images or video clips need labelling, how complex the labels are (a box is cheaper than a pixel-level mask or a 3D keypoint), and whether domain experts are needed. Foundation models and model-assisted labelling have cut this cost significantly, but it's still often a major line item for custom work. See <a href="../custom-computer-vision-solutions-guide/index.html">our guide to custom computer vision</a> for how much data you typically need.</p>
+
+<h3>3. Model development and evaluation</h3>
+<p>Selecting, fine-tuning and testing models until they meet the agreed accuracy on real footage. Harder problems, such as subtle defects, rare events or crowded scenes, need more iteration.</p>
+
+<h3>4. Integration and software</h3>
+<p>Connecting to cameras, VMS, POS, ERP, PLCs, alerting tools and dashboards. In many projects, <strong>integration costs more than the model itself</strong>, especially with older systems.</p>
+
+<h3>5. Hardware</h3>
+<p>Edge AI devices range from compact modules for a few cameras to on-site GPU servers for dozens. You may also need new or repositioned cameras, network upgrades and mounting. Read our <a href="../edge-ai-vs-cloud-computer-vision/index.html">edge vs cloud guide</a> to see how this choice affects cost.</p>
+
+<h3>6. Cloud and bandwidth</h3>
+<p>Cloud GPU inference, storage and data transfer fees. Continuous video streamed to the cloud gets expensive quickly; sending only events and clips from the edge keeps these costs low.</p>
+
+<h3>7. Licences, support and MLOps</h3>
+<p>Production systems need monitoring, model updates, retraining as conditions change, security patches and support. These are usually priced as a subscription per camera, per site or per platform.</p>
+
+<h2 id="cost-drivers">What pushes costs up or down</h2>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Lower cost</th><th>Higher cost</th></tr></thead>
+  <tbody>
+    <tr><td>Common objects (people, vehicles)</td><td>Unusual objects, subtle defects, rare events</td></tr>
+    <tr><td>Good existing cameras and lighting</td><td>New camera installs, difficult lighting or angles</td></tr>
+    <tr><td>Moderate accuracy is acceptable</td><td>Near-perfect accuracy required</td></tr>
+    <tr><td>Standalone dashboard</td><td>Deep integration with legacy systems</td></tr>
+    <tr><td>One site, a few cameras</td><td>Hundreds of sites, thousands of cameras</td></tr>
+    <tr><td>Batch or delayed results are fine</td><td>Real-time decisions in milliseconds</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="example-budget">An illustrative example: retail self-checkout pilot</h2>
+
+<p>Imagine a grocery retailer piloting <a href="../self-checkout-theft-detection-computer-vision/index.html">self-checkout theft detection</a> across 5 stores with 8 self-checkout lanes each:</p>
+<ul>
+  <li><strong>Discovery and design:</strong> camera audit, POS integration plan and success metrics.</li>
+  <li><strong>Hardware:</strong> 40 overhead lane cameras (if not already installed) plus one edge AI device per store.</li>
+  <li><strong>Software:</strong> model tuning on the retailer's footage, POS synchronisation and attendant alerts.</li>
+  <li><strong>Pilot operations:</strong> 2–3 weeks in silent mode, then 6–8 weeks live with control stores.</li>
+</ul>
+<p>The pilot's success is measured as loss recovered per lane against the control stores. If a lane recovers more per year than it costs to run, the case for scaling makes itself.</p>
+
+<h2 id="build-vs-partner">In-house team vs specialist partner</h2>
+
+<p>Building in-house means hiring and keeping ML engineers, data engineers and MLOps specialists, plus labelling capacity and GPU infrastructure, before the first model reaches production. That makes sense when vision is core to your product. For most companies, a specialist partner gets to production faster, and you can bring capabilities in-house later.</p>
+
+<h2 id="hidden-costs">Hidden costs to watch for</h2>
+
+<ul>
+  <li><strong>False alarms:</strong> staff time spent reviewing bad alerts is a real, recurring cost.</li>
+  <li><strong>Drift:</strong> new products, uniforms, layouts or seasons reduce accuracy unless models are retrained.</li>
+  <li><strong>Camera maintenance:</strong> dirty lenses, moved cameras and failed devices.</li>
+  <li><strong>Compliance:</strong> DPIAs, signage, documentation and <a href="../eu-ai-act-computer-vision-compliance/index.html">AI Act obligations</a>.</li>
+  <li><strong>Change management:</strong> training teams and redesigning workflows around the new alerts.</li>
+</ul>
+
+<h2 id="reduce-cost">How to reduce cost without reducing results</h2>
+
+<ol>
+  <li><strong>Start narrow:</strong> one high-value use case, one measurable KPI.</li>
+  <li><strong>Reuse existing cameras</strong> wherever angles allow.</li>
+  <li><strong>Use foundation models</strong> to cut labelling and development time.</li>
+  <li><strong>Process at the edge</strong> to avoid ongoing bandwidth and cloud costs.</li>
+  <li><strong>Insist on a proof of concept</strong> with clear go/no-go criteria before scaling.</li>
+  <li><strong>Add use cases on the same infrastructure:</strong> the second and third use cases cost far less than the first.</li>
+</ol>
+
+<h2 id="roi">Thinking in ROI, not cost</h2>
+
+<p>Computer vision projects should pay for themselves through recovered losses, labour saved, defects avoided, incidents prevented or new revenue. Before asking "how much does it cost?", ask "what is the problem costing us today?" Our <a href="../../index.html#loss-prevention">shrink savings estimator</a> is a quick way to size that for retail.</p>
+
+<p>Want a realistic estimate for your project? <a href="../../index.html#contact">Share your use case</a> and we'll come back with a scoped proposal and a fixed-price proof of concept.</p>

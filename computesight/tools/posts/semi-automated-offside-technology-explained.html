@@ -1,0 +1,80 @@
+<div class="takeaways">
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>Semi-automated offside technology (SAOT) uses multi-camera computer vision to track players' limbs and the ball in 3D, then calculates the offside line automatically.</li>
+    <li>FIFA introduced it at the 2022 World Cup with 12 tracking cameras following up to 29 points on each player's body, 50 times per second.</li>
+    <li>A human video assistant referee still validates every decision, so the system is "semi" automated.</li>
+    <li>The same building blocks (calibration, 3D pose estimation and tracking) power performance analytics that clubs at every level can now use.</li>
+  </ul>
+</div>
+
+<p>Few decisions in football cause as much debate as tight offside calls. Before tracking technology, video assistant referees (VAR) often spent minutes drawing lines on broadcast frames, and fans rarely trusted the result. <strong>Semi-automated offside technology</strong> was designed to make those calls faster, more consistent and easier to explain. Under the hood, it's a showcase of modern <strong>computer vision</strong>.</p>
+
+<h2 id="why-offside-is-hard">Why offside is so hard to judge</h2>
+
+<p>A player is offside if, when the ball is played by a teammate, any part of their head, body or feet is closer to the opponents' goal line than both the ball and the second-last opponent (arms and hands don't count). Judging that needs two precise things at once:</p>
+<ul>
+  <li><strong>The exact moment the ball is played</strong> (the "kick point").</li>
+  <li><strong>The exact position of every relevant body part</strong> of attacker and defender at that moment.</li>
+</ul>
+
+<p>Both are harder than they sound. A sprinting player can cover around 10 metres per second, so at 50 frames per second they move about <strong>20 centimetres between frames</strong>. Choosing the wrong frame can easily change the decision. Broadcast cameras also look at the pitch at an angle, so lines drawn on a 2D image can be misleading.</p>
+
+<h2 id="how-saot-works">How semi-automated offside technology works</h2>
+
+<h3>1. Dedicated tracking cameras</h3>
+<p>At the 2022 World Cup in Qatar, FIFA installed <strong>12 dedicated tracking cameras</strong> under the stadium roof, separate from the broadcast cameras. Because they're fixed and carefully calibrated, every pixel can be mapped to a real-world position on the pitch.</p>
+
+<h3>2. Limb tracking (3D pose estimation)</h3>
+<p>Computer vision models detect each player and estimate the positions of <strong>up to 29 body points</strong>, including shoulders, hips, knees, feet and head, <strong>50 times per second</strong>. Combining views from several cameras lets the system triangulate those points in 3D, even when one camera's view is blocked.</p>
+
+<h3>3. Kick-point detection</h3>
+<p>In Qatar, the official match ball contained an <strong>inertial measurement unit</strong> sending data around <strong>500 times per second</strong>, which pinpointed the moment of contact far more precisely than video alone. Other competitions rely more on vision-based ball tracking to estimate the kick point.</p>
+
+<h3>4. Automatic offside line and alert</h3>
+<p>With the kick point and the 3D skeletons, software calculates the relevant offside line and alerts the video match officials when an attacker is in an offside position at the moment the ball is played.</p>
+
+<h3>5. Human validation and 3D animation</h3>
+<p>The VAR team checks the automatically chosen kick point and the line before confirming the decision with the on-field referee. A 3D animation of the moment is then generated for stadium screens and broadcasters, which is a big step forward for transparency.</p>
+
+<blockquote><p>The "semi" matters: the computer does the measuring, and people still make the call.</p></blockquote>
+
+<h2 id="computer-vision-under-the-hood">The computer vision under the hood</h2>
+
+<ul>
+  <li><strong>Multi-camera calibration:</strong> estimating each camera's exact position, orientation and lens distortion relative to the pitch.</li>
+  <li><strong>Detection and tracking:</strong> keeping a consistent identity for every player through crowded penalty areas and fast transitions.</li>
+  <li><strong>3D pose estimation:</strong> turning 2D keypoints from several cameras into a 3D skeleton for each player.</li>
+  <li><strong>Ball tracking:</strong> following a small, fast object that's often hidden behind players.</li>
+  <li><strong>Temporal precision:</strong> synchronising every camera to the same clock, so "the moment the ball was played" means the same instant in every view.</li>
+</ul>
+
+<p>These are the same techniques behind <a href="../computer-vision-sports-analytics-player-tracking/index.html">optical player tracking for performance analysis</a>. The main difference is the number of cameras and the precision required.</p>
+
+<h2 id="adoption">Where SAOT is used</h2>
+
+<p>After its World Cup debut, semi-automated offside spread to top competitions. UEFA introduced it in the Champions League from the 2022/23 season, and several major domestic leagues have since adopted their own versions, including the Premier League in 2025. Implementations vary in camera numbers, vendors and whether a sensor ball is used, but the principle is the same.</p>
+
+<h2 id="limitations">Limitations and debates</h2>
+
+<ul>
+  <li><strong>Frame rate and timing:</strong> even at 50 fps, the true kick point can fall between frames; sensor balls and interpolation reduce this but can't remove it entirely.</li>
+  <li><strong>Body-part definitions:</strong> deciding where the "arm" ends and the "shoulder" begins is a modelling choice that affects marginal calls.</li>
+  <li><strong>Occlusion:</strong> crowded situations can still challenge limb tracking, which is why several overlapping camera views are essential.</li>
+  <li><strong>Trust and explanation:</strong> the technology is only as accepted as its explanation. The 3D replays are as important as the maths.</li>
+</ul>
+
+<h2 id="beyond-football">Beyond offside: officiating across sport</h2>
+
+<p>Computer vision officiating is spreading. Electronic line calling is now standard on the professional tennis tours and replaced line judges at Wimbledon from 2025. Ball-tracking systems inform LBW reviews in cricket. Similar multi-camera tracking is being used for goal-line decisions, ball-in/out calls and judging in gymnastics.</p>
+
+<h2 id="what-it-means-for-clubs">What it means for clubs, academies and broadcasters</h2>
+
+<p>You don't need a stadium-scale installation to benefit. The same computer vision that powers SAOT, scaled to one or two fixed cameras, can deliver:</p>
+<ul>
+  <li>Positional and physical data for every player, with no wearables needed.</li>
+  <li>Tactical analysis of defensive lines, pressing and offside traps.</li>
+  <li>Automated highlights and broadcast graphics for lower leagues and academies.</li>
+</ul>
+
+<p>Try painting a player heatmap in our <a href="../../index.html#sports">interactive sports analytics demo</a>, or <a href="../../index.html#contact">send us match footage</a> to see what tracking data your cameras can produce.</p>

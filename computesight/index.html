@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ComputeSight | Computer Vision &amp; AI Loss Prevention Solutions</title>
+  <meta name="description" content="ComputeSight builds computer vision solutions: AI loss prevention, self-checkout theft detection, sports analytics, quality inspection and custom AI." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://www.computesight.ai/" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:site_name" content="ComputeSight" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.computesight.ai/" />
+  <meta property="og:title" content="ComputeSight | Computer Vision, AI Loss Prevention &amp; Sports Analytics" />
+  <meta property="og:description" content="Computer vision services, AI loss prevention, sports analytics and custom AI solutions, deployed on the edge or in the cloud." />
+  <meta property="og:image" content="https://www.computesight.ai/assets/og/home.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ComputeSight | Computer Vision &amp; AI Loss Prevention" />
+  <meta name="twitter:description" content="Computer vision services, AI loss prevention, sports analytics and custom AI solutions." />
+  <meta name="twitter:image" content="https://www.computesight.ai/assets/og/home.png" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="alternate" type="application/rss+xml" title="ComputeSight Insights" href="blog/feed.xml" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.computesight.ai/#org",
+        "name": "ComputeSight",
+        "url": "https://www.computesight.ai/",
+        "logo": { "@type": "ImageObject", "url": "https://www.computesight.ai/assets/logo-512.png", "width": 512, "height": 512 },
+        "description": "Computer vision services, AI loss prevention, sports analytics and custom AI solutions.",
+        "email": "hello@computesight.ai",
+        "knowsAbout": ["Computer vision", "AI loss prevention", "Retail shrink reduction", "Self-checkout theft detection", "Sports analytics", "Player tracking", "Automated visual inspection", "Edge AI", "Custom AI solutions"],
+        "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "email": "hello@computesight.ai", "availableLanguage": ["English"] }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.computesight.ai/#website",
+        "url": "https://www.computesight.ai/",
+        "name": "ComputeSight",
+        "publisher": { "@id": "https://www.computesight.ai/#org" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "ComputeSight services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Computer Vision Services", "serviceType": "Computer vision development", "provider": { "@id": "https://www.computesight.ai/#org" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Loss Prevention", "serviceType": "Retail loss prevention", "provider": { "@id": "https://www.computesight.ai/#org" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sports Analytics", "serviceType": "Player and ball tracking", "provider": { "@id": "https://www.computesight.ai/#org" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI Solutions", "serviceType": "Custom machine learning development", "provider": { "@id": "https://www.computesight.ai/#org" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Industrial Quality Control", "serviceType": "Automated visual inspection", "provider": { "@id": "https://www.computesight.ai/#org" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Workplace Safety & PPE Detection", "serviceType": "Safety monitoring", "provider": { "@id": "https://www.computesight.ai/#org" } } }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Do I need to buy new cameras?", "acceptedAnswer": { "@type": "Answer", "text": "Usually not. ComputeSight works with most existing IP cameras (RTSP/ONVIF) at 720p or higher. During discovery we check your camera angles and coverage, and only recommend new hardware where it clearly pays off." } },
+          { "@type": "Question", "name": "How long does a pilot take?", "acceptedAnswer": { "@type": "Answer", "text": "Most pilots run for 4–8 weeks: one week of discovery, two to three weeks building a proof of concept on your footage, then a live trial at one or two sites with agreed success metrics." } },
+          { "@type": "Question", "name": "Does it run on the edge or in the cloud?", "acceptedAnswer": { "@type": "Answer", "text": "Either, or both. Real-time use cases like loss prevention and safety typically run on edge devices on-site, while reporting and model management live in the cloud. Fully on-prem deployments are available too." } },
+          { "@type": "Question", "name": "How do you handle privacy and regulation?", "acceptedAnswer": { "@type": "Answer", "text": "We design for privacy from day one: masking at the source, minimal data retention, on-prem processing and documented data flows that support your GDPR or local compliance work. We don't do facial recognition by default." } },
+          { "@type": "Question", "name": "How accurate are the models?", "acceptedAnswer": { "@type": "Answer", "text": "We agree accuracy targets with you during discovery and measure them on your own footage before go-live. Reviewer feedback keeps retraining the models, so false alerts drop over time." } },
+          { "@type": "Question", "name": "Can you build something completely custom?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Custom AI is half of what we do, from bespoke detection models to vision-language agents that answer questions about your video. If a camera can see it, we can usually teach a model to understand it." } },
+          { "@type": "Question", "name": "How is pricing structured?", "acceptedAnswer": { "@type": "Answer", "text": "Pilots are fixed-price. Production deployments are usually a per-camera or per-site subscription that covers software, model updates and support. Custom projects are scoped and quoted separately." } }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-root="">
+
+  <!-- NAV:START (generated by tools/build_site.py) -->
+  <a class="skip" href="#top">Skip to content</a>
+  <header class="nav" id="nav">
+    <a href="index.html" class="brand" aria-label="ComputeSight home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16s5-8.5 13-8.5S29 16 29 16s-5 8.5-13 8.5S3 16 3 16z"/><circle cx="16" cy="16" r="4.2"/></svg><span>Compute<b>Sight</b></span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <div class="dd">
+        <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-solutions">Solutions <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dd-menu" id="dd-solutions">
+          <a href="solutions/computer-vision/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span><b>Computer Vision Services</b><small>Detection, tracking, OCR &amp; pose</small></span></a>
+          <a href="solutions/loss-prevention/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b>AI Loss Prevention</b><small>Self-checkout, POS &amp; theft detection</small></span></a>
+          <a href="solutions/sports-analytics/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 5h-5L8 10z"/></svg></span><span><b>Sports Analytics</b><small>Player &amp; ball tracking from video</small></span></a>
+          <a href="solutions/custom-ai/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg></span><span><b>Custom AI Solutions</b><small>Bespoke models &amp; vision-language agents</small></span></a>
+          <a href="solutions/quality-inspection/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M5 20V9l5 3V9l5 3V5h4v15"/></svg></span><span><b>Quality Inspection</b><small>Automated visual defect detection</small></span></a>
+          <a class="dd-foot" href="#lab">See all of it running in the live demo <span>→</span></a>
+        </div>
+      </div>
+      <a href="#industries">Industries</a>
+      <a href="pricing/index.html">Pricing</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="about/index.html">About</a>
+      <a href="contact/index.html" class="btn btn-sm">Book a demo</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+  <!-- NAV:END -->
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <a class="hero-badge" href="blog/ai-video-analytics-guide/index.html"><span>New</span> The 2026 guide to AI video analytics <i aria-hidden="true">→</i></a>
+        <h1>Computer vision that turns your cameras into <span class="grad">real-time decisions</span></h1>
+        <p class="lead">ComputeSight builds computer vision and custom AI for loss prevention, sports analytics, quality inspection and workplace safety. It runs on the cameras you already have, at the edge or in the cloud.</p>
+        <div class="hero-cta">
+          <a href="contact/index.html" class="btn btn-lg">Book a demo</a>
+          <a href="#lab" class="btn btn-ghost btn-lg">See the live demo</a>
+        </div>
+        <ul class="hero-points">
+          <li>Works with existing IP cameras</li>
+          <li>Edge, cloud or on-prem</li>
+          <li>Privacy-first by design</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- LIVE LAB -->
+    <section class="lab" id="lab">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Live demo</p>
+          <h2>See what our models see.</h2>
+          <p>A live simulation of three ComputeSight pipelines running in your browser. Switch scenes, adjust the confidence threshold and hover over any tracked object to inspect it.</p>
+        </div>
+
+        <div class="stage">
+          <div class="float float-a" aria-hidden="true">
+            <span class="f-dot red"></span>
+            <div><b>Concealment detected</b><small>Aisle 2 · confidence 0.93 · 2s ago</small></div>
+          </div>
+          <div class="float float-b" aria-hidden="true">
+            <small>Self-checkout loss, this month</small>
+            <b class="f-big">−38%</b>
+            <svg viewBox="0 0 120 36" class="spark"><path d="M2 8 L18 10 L32 9 L46 15 L60 14 L74 21 L88 22 L102 28 L118 30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="float float-c" aria-hidden="true">
+            <span class="f-dot green"></span>
+            <div><b>Edge node online</b><small>8 cameras · 38 ms inference</small></div>
+          </div>
+        <div class="monitor">
+          <div class="monitor-bar">
+            <div class="tabs" role="tablist" aria-label="Demo scene">
+              <button role="tab" class="tab active" data-mode="retail" aria-selected="true">Retail · Loss Prevention</button>
+              <button role="tab" class="tab" data-mode="sports" aria-selected="false">Sports · Player Tracking</button>
+              <button role="tab" class="tab" data-mode="factory" aria-selected="false">Factory · Defect Detection</button>
+            </div>
+            <div class="monitor-meta mono"><span class="rec"></span>LIVE · <span id="feedClock">00:00:00</span> · <span id="feedFps">60</span> FPS</div>
+          </div>
+          <div class="monitor-body">
+            <div class="feed-wrap">
+              <canvas id="feed" aria-label="Simulated computer vision camera feed"></canvas>
+              <div class="feed-tooltip mono" id="feedTip" hidden></div>
+              <div class="hud mono" aria-hidden="true">
+                <span class="hud-tl">CAM-04 · <span id="camName">STORE FLOOR</span></span>
+                <span class="hud-br">MODEL <span id="modelName">cs-retail-v5</span></span>
+              </div>
+            </div>
+            <aside class="feed-side">
+              <div class="side-stats" id="sideStats"></div>
+              <div class="side-log">
+                <p class="mono side-title">Event stream</p>
+                <ul id="eventLog" class="mono"></ul>
+              </div>
+            </aside>
+          </div>
+          <div class="monitor-controls">
+            <label class="toggle"><input type="checkbox" id="optBoxes" checked /><span></span>Bounding boxes</label>
+            <label class="toggle"><input type="checkbox" id="optTrails" checked /><span></span>Motion trails</label>
+            <label class="toggle"><input type="checkbox" id="optHeat" /><span></span>Heatmap</label>
+            <label class="range mono">Confidence ≥ <output id="confOut">0.50</output><input type="range" id="optConf" min="0.3" max="0.95" step="0.05" value="0.5" /></label>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY FIGURES -->
+    <section class="strip" aria-label="Key figures">
+      <div class="container">
+        <p class="logos-title">Built for teams in</p>
+        <ul class="logos">
+          <li><svg viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9M3 9h18M3 9v11h18V9M9 20v-6h6v6"/></svg>Retail &amp; grocery</li>
+          <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 5h-5L8 10z"/></svg>Sports &amp; media</li>
+          <li><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20V9l5 3V9l5 3V5h4v15"/></svg>Manufacturing</li>
+          <li><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>Logistics</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 21V8l5-3v16M9 21V3l6 3v15M15 21V10l5 2v9M2 21h20"/></svg>Smart cities</li>
+          <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-11a7 7 0 0114 0c0 6.5-7 11-7 11z"/><path d="M9 10h6M12 7v6"/></svg>Healthcare</li>
+        </ul>
+        <ul class="proof">
+          <li><strong data-count="98.7" data-decimals="1" data-suffix="%">0</strong><span>Detection precision on production models</span></li>
+          <li><strong data-count="40" data-suffix=" ms">0</strong><span>Typical edge inference latency</span></li>
+          <li><strong data-count="12" data-suffix="+">0</strong><span>Industries with live deployments</span></li>
+          <li><strong data-count="8" data-suffix=" wks">0</strong><span>From kickoff to production pilot</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Services</p>
+          <h2>One vision stack.<br /><span class="grad">Endless applications.</span></h2>
+          <p>From a single proof of concept to thousands of cameras across sites, we design, train, deploy and run the whole pipeline.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card card-xl" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3><a href="solutions/computer-vision/index.html">Computer Vision Services</a></h3>
+            <p>Detection, tracking, segmentation, OCR and pose models trained on your data and tuned to your cameras, lighting and edge cases.</p>
+            <ul class="chips"><li>Detection</li><li>Tracking</li><li>Segmentation</li><li>OCR</li><li>Pose</li></ul>
+            <div class="card-visual vis-detect" aria-hidden="true">
+              <span class="cb" style="--accent-c:#7aa2ff;left:8%;top:28%;width:20%;height:56%"><b>person 0.97</b></span>
+              <span class="cb" style="--accent-c:#2dd4bf;left:36%;top:44%;width:26%;height:36%"><b>forklift 0.94</b></span>
+              <span class="cb" style="--accent-c:#fbbf24;left:72%;top:34%;width:16%;height:30%"><b>pallet 0.91</b></span>
+            </div>
+          </article>
+          <article class="card card-xl" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <h3><a href="solutions/loss-prevention/index.html">Loss Prevention</a></h3>
+            <p>Catch sweethearting, skip-scans, concealment and organised retail crime as it happens, with evidence clips sent straight to your team.</p>
+            <ul class="chips"><li>Self-checkout</li><li>POS + video</li><li>Shelf sweeps</li><li>ORC</li></ul>
+            <div class="card-visual vis-alerts" aria-hidden="true">
+              <div class="va"><span class="f-dot red"></span><b>Non-scan</b><span>Lane 3</span><em>0.91</em></div>
+              <div class="va"><span class="f-dot amber"></span><b>Long dwell</b><span>Aisle 5</span><em>0.86</em></div>
+              <div class="va"><span class="f-dot green"></span><b>Paid · POS matched</b><span>Lane 1</span><em>0.99</em></div>
+            </div>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3l3 6-3 3-3-3 3-6zM3.5 10l5.5 2-1 5M20.5 10L15 12l1 5M8 17l4 4 4-4"/></svg></div>
+            <h3><a href="solutions/sports-analytics/index.html">Sports Analytics</a></h3>
+            <p>Player and ball tracking, tactical heatmaps, workload metrics and automatic highlights from a single broadcast or wide-angle camera.</p>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg></div>
+            <h3><a href="solutions/custom-ai/index.html">Custom AI Solutions</a></h3>
+            <p>Bespoke models, vision-language agents and data pipelines for problems no off-the-shelf product solves.</p>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20V9l5 3V9l5 3V5h4v15"/></svg></div>
+            <h3><a href="solutions/quality-inspection/index.html">Industrial Quality Control</a></h3>
+            <p>Find defects, check assemblies and measure parts on the line at full speed, with no more manual spot checks.</p>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 014 4v1H8V7a4 4 0 014-4zM5 8h14l-1 5H6L5 8z"/><path d="M7 13v8M17 13v8M10 17h4"/></svg></div>
+            <h3>Workplace Safety &amp; PPE</h3>
+            <p>Spot PPE violations, restricted-zone entries, falls and near-misses before they turn into incidents.</p>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 17h18M6 17l2-6h8l2 6M8 11l1-4h6l1 4"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/></svg></div>
+            <h3>Smart Traffic &amp; ANPR</h3>
+            <p>Vehicle counting and classification, licence plate recognition, parking occupancy and incident detection.</p>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"/></svg></div>
+            <h3>Retail &amp; Footfall Analytics</h3>
+            <p>Footfall, dwell time, queue length, planogram compliance and out-of-stock alerts, all on a live dashboard.</p>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-11a7 7 0 0114 0c0 6.5-7 11-7 11z"/><path d="M9 10h6M12 7v6"/></svg></div>
+            <h3>Healthcare Imaging</h3>
+            <p>Assistive image analysis, patient fall detection and workflow automation, built with privacy first.</p>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
+            <h3>Drone &amp; Aerial Vision</h3>
+            <p>Inspect infrastructure, monitor crops and survey sites from aerial and satellite imagery.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section class="industries" id="industries">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Industries</p>
+          <h2>Built for the places cameras already watch.</h2>
+          <p>Pick an industry to see where ComputeSight usually starts and the result we aim for first.</p>
+        </div>
+        <div class="ind" data-reveal>
+          <div class="ind-tabs" role="tablist" aria-label="Industries" aria-orientation="vertical">
+            <button class="ind-tab active" role="tab" aria-selected="true" aria-controls="ind-retail" id="tab-retail"><span class="n">01</span>Retail &amp; Grocery</button>
+            <button class="ind-tab" role="tab" aria-selected="false" aria-controls="ind-sports" id="tab-sports" tabindex="-1"><span class="n">02</span>Sports &amp; Media</button>
+            <button class="ind-tab" role="tab" aria-selected="false" aria-controls="ind-mfg" id="tab-mfg" tabindex="-1"><span class="n">03</span>Manufacturing</button>
+            <button class="ind-tab" role="tab" aria-selected="false" aria-controls="ind-logistics" id="tab-logistics" tabindex="-1"><span class="n">04</span>Logistics &amp; Warehousing</button>
+            <button class="ind-tab" role="tab" aria-selected="false" aria-controls="ind-city" id="tab-city" tabindex="-1"><span class="n">05</span>Smart Cities &amp; Transport</button>
+            <button class="ind-tab" role="tab" aria-selected="false" aria-controls="ind-health" id="tab-health" tabindex="-1"><span class="n">06</span>Healthcare</button>
+            <button class="ind-tab" role="tab" aria-selected="false" aria-controls="ind-construction" id="tab-construction" tabindex="-1"><span class="n">07</span>Construction &amp; Energy</button>
+          </div>
+
+          <div class="ind-panels">
+            <article class="ind-panel" id="ind-retail" role="tabpanel" aria-labelledby="tab-retail">
+              <div>
+                <h3>Stop shrink. Shorten queues. Keep shelves full.</h3>
+                <p>Our retail models run on the CCTV you already have and link to your POS, so every alert comes with evidence.</p>
+                <ul class="uses"><li>Self-checkout non-scan detection</li><li>Sweethearting &amp; refund fraud</li><li>Queue length &amp; staffing alerts</li><li>Out-of-stock &amp; planogram checks</li><li>Footfall, dwell &amp; conversion</li><li>Organised retail crime patterns</li></ul>
+              </div>
+              <div class="kpi"><span>Target outcome</span><strong>30–45%</strong><span>less self-checkout loss</span></div>
+            </article>
+            <article class="ind-panel" id="ind-sports" role="tabpanel" aria-labelledby="tab-sports" hidden>
+              <div>
+                <h3>Elite-level data from a single camera.</h3>
+                <p>Player and ball tracking, event detection and tactical analysis for clubs, academies, leagues and broadcasters.</p>
+                <ul class="uses"><li>Player &amp; ball tracking</li><li>Physical load &amp; sprint metrics</li><li>Automatic highlight clipping</li><li>Tactical shape &amp; pressing maps</li><li>Broadcast AR overlays</li><li>Scouting &amp; talent ID data</li></ul>
+              </div>
+              <div class="kpi"><span>Target outcome</span><strong>5 min</strong><span>from final whistle to full report</span></div>
+            </article>
+            <article class="ind-panel" id="ind-mfg" role="tabpanel" aria-labelledby="tab-mfg" hidden>
+              <div>
+                <h3>Inspect every part, not a sample.</h3>
+                <p>Defect detection and assembly checks that run at full line speed and learn from only a few hundred labelled images.</p>
+                <ul class="uses"><li>Surface defects &amp; scratches</li><li>Assembly &amp; component presence</li><li>Label, print &amp; barcode checks</li><li>Dimensional measurement</li><li>Line throughput analytics</li><li>Operator safety zones</li></ul>
+              </div>
+              <div class="kpi"><span>Target outcome</span><strong>90%+</strong><span>fewer defect escapes</span></div>
+            </article>
+            <article class="ind-panel" id="ind-logistics" role="tabpanel" aria-labelledby="tab-logistics" hidden>
+              <div>
+                <h3>See every pallet, parcel and forklift.</h3>
+                <p>Track goods and vehicles through the warehouse and catch damage and mis-sorts before anything ships.</p>
+                <ul class="uses"><li>Parcel damage detection</li><li>Pallet &amp; label recognition</li><li>Forklift–pedestrian near-miss</li><li>Dock door utilisation</li><li>Inventory counting by drone</li><li>Trailer fill estimation</li></ul>
+              </div>
+              <div class="kpi"><span>Target outcome</span><strong>60%</strong><span>fewer damage claims</span></div>
+            </article>
+            <article class="ind-panel" id="ind-city" role="tabpanel" aria-labelledby="tab-city" hidden>
+              <div>
+                <h3>Smarter streets with the same cameras.</h3>
+                <p>Traffic, parking and public-space analytics, with anonymised data from the very first frame.</p>
+                <ul class="uses"><li>Vehicle counting &amp; classification</li><li>Licence plate recognition (ANPR)</li><li>Parking occupancy</li><li>Incident &amp; wrong-way detection</li><li>Pedestrian &amp; cyclist flows</li><li>Crowd density monitoring</li></ul>
+              </div>
+              <div class="kpi"><span>Target outcome</span><strong>&lt;2 s</strong><span>incident-to-alert time</span></div>
+            </article>
+            <article class="ind-panel" id="ind-health" role="tabpanel" aria-labelledby="tab-health" hidden>
+              <div>
+                <h3>More eyes on patients, with privacy built in.</h3>
+                <p>Assistive vision for care settings, processed on-site, with no identifiable footage leaving the building.</p>
+                <ul class="uses"><li>Fall detection &amp; prevention</li><li>Bed-exit alerts</li><li>Hand-hygiene compliance</li><li>Assistive imaging workflows</li><li>Equipment tracking</li><li>Operating room analytics</li></ul>
+              </div>
+              <div class="kpi"><span>Target outcome</span><strong>24/7</strong><span>monitoring without extra staff</span></div>
+            </article>
+            <article class="ind-panel" id="ind-construction" role="tabpanel" aria-labelledby="tab-construction" hidden>
+              <div>
+                <h3>Safer sites and smarter inspections.</h3>
+                <p>PPE checks, progress tracking and asset inspection from fixed cameras, drones and satellite imagery.</p>
+                <ul class="uses"><li>PPE &amp; exclusion-zone alerts</li><li>Progress vs. plan tracking</li><li>Power line &amp; pipeline inspection</li><li>Solar panel fault detection</li><li>Equipment utilisation</li><li>Fire &amp; smoke early warning</li></ul>
+              </div>
+              <div class="kpi"><span>Target outcome</span><strong>50%</strong><span>less time on manual inspection</span></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOSS PREVENTION + ROI -->
+    <section class="lp" id="loss-prevention">
+      <div class="container split">
+        <div class="split-copy" data-reveal>
+          <p class="eyebrow">Loss Prevention</p>
+          <h2>Shrink, <span class="grad">meet its match.</span></h2>
+          <p>ComputeSight connects your existing CCTV to your point-of-sale data. When the video doesn't match the receipt, we flag it within seconds and show your team exactly what happened.</p>
+          <ol class="steps">
+            <li><b>Detect</b><span>Items, hands, bags and scanner zones, tracked frame by frame.</span></li>
+            <li><b>Reconcile</b><span>Each scan event is matched to POS transactions as it happens.</span></li>
+            <li><b>Alert</b><span>A 10-second evidence clip is pushed to staff mobiles or your SOC.</span></li>
+            <li><b>Learn</b><span>Reviewer feedback retrains the model so false alerts keep dropping.</span></li>
+          </ol>
+        </div>
+
+        <div class="roi card-glass" data-reveal>
+          <p class="roi-title">Shrink savings estimator</p>
+          <label class="field">
+            <span>Annual retail revenue <output class="mono" id="revOut">$50M</output></span>
+            <input type="range" id="rev" min="5" max="1000" step="5" value="50" />
+          </label>
+          <label class="field">
+            <span>Current shrink rate <output class="mono" id="shrinkOut">1.6%</output></span>
+            <input type="range" id="shrink" min="0.5" max="4" step="0.1" value="1.6" />
+          </label>
+          <label class="field">
+            <span>Expected reduction with ComputeSight <output class="mono" id="redOut">35%</output></span>
+            <input type="range" id="red" min="10" max="60" step="5" value="35" />
+          </label>
+          <div class="roi-result">
+            <div><span class="mono">Current annual loss</span><strong id="lossNow">$800K</strong></div>
+            <div class="hl"><span class="mono">Estimated annual recovery</span><strong id="saveNow">$280K</strong></div>
+          </div>
+          <div class="roi-bar"><span id="roiBar"></span></div>
+          <p class="fine">Illustrative estimate only. Actual results depend on store format, camera coverage and operations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPORTS -->
+    <section class="sports" id="sports">
+      <div class="container split split-rev">
+        <div class="pitch-card card-glass" data-reveal>
+          <div class="pitch-head mono"><span>MATCH HEATMAP · #10</span><span id="pitchStat">Distance 10.4 km</span></div>
+          <canvas id="pitch" aria-label="Interactive player heatmap; move the pointer to paint movement"></canvas>
+          <div class="pitch-foot">
+            <button class="chip-btn active" data-player="10">#10 Midfield</button>
+            <button class="chip-btn" data-player="9">#9 Striker</button>
+            <button class="chip-btn" data-player="4">#4 Defender</button>
+          </div>
+        </div>
+        <div class="split-copy" data-reveal>
+          <p class="eyebrow">Sports Analytics</p>
+          <h2>Every sprint, pass and press, measured.</h2>
+          <p>Our tracking engine works from broadcast or tactical cameras, with no wearables needed. Coaches get data like an elite academy has, and analysts get clean event streams through an API.</p>
+          <div class="metric-grid">
+            <div><strong data-count="25" data-suffix="Hz">0</strong><span>tracking frequency</span></div>
+            <div><strong data-count="22">0</strong><span>players + ball, at once</span></div>
+            <div><strong data-count="300" data-suffix="+">0</strong><span>events per match</span></div>
+            <div><strong data-count="5" data-suffix=" min">0</strong><span>to full match report</span></div>
+          </div>
+          <p class="small">Football · Basketball · Cricket · Rugby · Tennis · Esports broadcast overlays</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEVELOPERS -->
+    <section class="dev" id="developers">
+      <div class="container split">
+        <div class="split-copy" data-reveal>
+          <p class="eyebrow">Developers</p>
+          <h2>A vision API your engineers will enjoy.</h2>
+          <p>Every ComputeSight pipeline is also an API. Stream events into your own apps, dashboards and workflows in a few lines of code.</p>
+          <ul class="feature-list">
+            <li><b>REST &amp; webhooks</b><span>Events pushed to you as they happen, signed and retried.</span></li>
+            <li><b>Python &amp; JS SDKs</b><span>Typed clients with streaming built in.</span></li>
+            <li><b>Any video source</b><span>RTSP, SRT, HLS, ONVIF, files and images.</span></li>
+            <li><b>Runs anywhere</b><span>Same API in the cloud or in on-prem containers.</span></li>
+          </ul>
+        </div>
+        <div class="code-win" data-reveal>
+          <div class="code-bar">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <div class="code-tabs" role="tablist" aria-label="Code language">
+              <button class="code-tab active" role="tab" aria-selected="true" data-lang="python">Python</button>
+              <button class="code-tab" role="tab" aria-selected="false" data-lang="js">JavaScript</button>
+              <button class="code-tab" role="tab" aria-selected="false" data-lang="curl">cURL</button>
+            </div>
+            <button class="copy-btn mono" id="copyCode" type="button">Copy</button>
+          </div>
+<pre class="code" data-lang="python"><code><span class="k">from</span> computesight <span class="k">import</span> Client
+
+cs = <span class="f">Client</span>(api_key=<span class="s">"cs_live_…"</span>)
+
+<span class="c"># Attach an existing CCTV camera to a pipeline</span>
+stream = cs.streams.<span class="f">create</span>(
+    source=<span class="s">"rtsp://10.0.4.12/cam-04"</span>,
+    pipeline=<span class="s">"retail-loss-prevention"</span>,
+    min_confidence=<span class="n">0.8</span>,
+)
+
+<span class="k">for</span> event <span class="k">in</span> stream.<span class="f">events</span>():
+    <span class="k">if</span> event.type == <span class="s">"concealment"</span>:
+        <span class="f">notify_staff</span>(event.clip_url)</code></pre>
+<pre class="code" data-lang="js" hidden><code><span class="k">import</span> { ComputeSight } <span class="k">from</span> <span class="s">"@computesight/sdk"</span>;
+
+<span class="k">const</span> cs = <span class="k">new</span> <span class="f">ComputeSight</span>({ apiKey: process.env.CS_KEY });
+
+<span class="c">// Track players from a broadcast feed</span>
+<span class="k">const</span> match = <span class="k">await</span> cs.streams.<span class="f">create</span>({
+  source: <span class="s">"srt://broadcast.example/live"</span>,
+  pipeline: <span class="s">"sports-tracking"</span>,
+  sport: <span class="s">"football"</span>,
+});
+
+match.<span class="f">on</span>(<span class="s">"event"</span>, (e) =&gt; {
+  <span class="k">if</span> (e.type === <span class="s">"sprint"</span>) dashboard.<span class="f">push</span>(e);
+});</code></pre>
+<pre class="code" data-lang="curl" hidden><code><span class="c"># Inspect a single image for defects</span>
+<span class="f">curl</span> https://api.computesight.ai/v1/detect \
+  -H <span class="s">"Authorization: Bearer $CS_KEY"</span> \
+  -F image=@part_1043.jpg \
+  -F pipeline=qc-defects \
+  -F min_confidence=<span class="n">0.85</span></code></pre>
+          <div class="code-resp">
+            <div class="code-resp-head mono"><span>Response</span><span class="ok-pill" id="respStatus">200 OK · webhook</span></div>
+            <pre class="code resp" aria-live="off"><code id="respOut"></code><span class="caret" aria-hidden="true"></span></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">How we work</p>
+          <h2>From footage to production in weeks, not quarters.</h2>
+        </div>
+        <div class="timeline">
+          <div class="tl-item" data-reveal><span class="mono">WK 01</span><h3>Discover</h3><p>We audit your cameras, data and KPIs, and define what success looks like in numbers.</p></div>
+          <div class="tl-item" data-reveal><span class="mono">WK 02–04</span><h3>Prototype</h3><p>We label your footage, fine-tune foundation models and show you a working proof of concept on your own video.</p></div>
+          <div class="tl-item" data-reveal><span class="mono">WK 05–08</span><h3>Deploy</h3><p>We optimise for edge devices (Jetson, Hailo, Coral) or the cloud and integrate with your POS, VMS, ERP or apps.</p></div>
+          <div class="tl-item" data-reveal><span class="mono">ONGOING</span><h3>Evolve</h3><p>We monitor drift, retrain as needed and add new use cases on the same infrastructure.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY / NUMBERS -->
+    <section class="why">
+      <div class="container why-grid">
+        <div class="why-item" data-reveal><strong data-count="10" data-suffix="×">0</strong><p>faster to deploy than building in-house</p></div>
+        <div class="why-item" data-reveal><strong data-count="70" data-suffix="%">0</strong><p>fewer false alerts with human-in-the-loop learning</p></div>
+        <div class="why-item" data-reveal><strong data-count="0">0</strong><p>faces stored. Privacy-first by default, GDPR-ready</p></div>
+        <div class="why-item" data-reveal><strong data-count="24" data-suffix="/7">0</strong><p>monitoring and model support</p></div>
+      </div>
+    </section>
+
+    <!-- RESULTS / CASE STUDIES (placeholder content: replace with real, approved client results) -->
+    <section class="results" id="results">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Results</p>
+          <h2>Outcomes, <span class="grad">not just models.</span></h2>
+          <p>Each engagement starts with a measurable goal. Here's what that looks like in practice.</p>
+        </div>
+        <div class="results-grid">
+          <article class="case" data-reveal>
+            <span class="tag mono">Retail · Grocery chain · 140 stores</span>
+            <h3>Self-checkout loss cut by more than a third in six months</h3>
+            <p>Video and POS reconciliation at every self-checkout lane, with alerts sent to floor staff's handhelds.</p>
+            <div class="case-metrics"><div><strong>−38%</strong><span>SCO shrink</span></div><div><strong>4.1×</strong><span>first-year ROI</span></div></div>
+          </article>
+          <article class="case" data-reveal>
+            <span class="tag mono">Sports · Professional academy</span>
+            <h3>Full-match tracking without a single wearable</h3>
+            <p>One wide-angle camera per pitch now powers physical and tactical reports for every squad.</p>
+            <div class="case-metrics"><div><strong>22</strong><span>players tracked</span></div><div><strong>5 min</strong><span>to match report</span></div></div>
+          </article>
+          <article class="case" data-reveal>
+            <span class="tag mono">Manufacturing · Packaging plant</span>
+            <h3>Defect escapes down 91% on two high-speed lines</h3>
+            <p>Inline inspection with automatic rejection replaced hourly manual spot checks.</p>
+            <div class="case-metrics"><div><strong>−91%</strong><span>defect escapes</span></div><div><strong>0.3 s</strong><span>per inspection</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="trust" id="trust">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Privacy &amp; trust</p>
+          <h2>Responsible vision, by design.</h2>
+        </div>
+        <div class="trust-grid">
+          <div class="trust-item" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/><path d="M3 3l18 18"/></svg></div>
+            <h3>Privacy masking</h3>
+            <p>Faces and bodies can be blurred at the source. No facial recognition unless you explicitly need it and it's lawful.</p>
+          </div>
+          <div class="trust-item" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+            <h3>Your data stays yours</h3>
+            <p>Edge processing keeps raw video on your premises. We never use your footage to train shared models without consent.</p>
+          </div>
+          <div class="trust-item" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></div>
+            <h3>Secure by default</h3>
+            <p>Encryption in transit and at rest, SSO, role-based access and full audit logs as standard.</p>
+          </div>
+          <div class="trust-item" data-reveal>
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.6 7.1 18.2 8 12.7 4 8.8l5.5-.8L12 3z"/></svg></div>
+            <h3>Humans in the loop</h3>
+            <p>A person reviews every alert before anyone acts on it, and models are tested for bias across conditions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="stack">
+      <div class="container">
+        <div class="section-head center">
+          <p class="eyebrow">Deploy anywhere</p>
+          <h2>Edge, cloud or hybrid. Your call.</h2>
+        </div>
+        <div class="stack-row" data-reveal>
+          <span>NVIDIA Jetson</span><span>Hailo</span><span>Google Coral</span><span>AWS</span><span>Azure</span><span>GCP</span><span>On-prem GPU</span><span>RTSP / ONVIF</span><span>Milestone</span><span>Genetec</span><span>REST · Webhooks</span><span>Mobile SDK</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSIGHTS (cards generated from the blog) -->
+    <section class="insights" id="insights" aria-labelledby="insights-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Insights</p>
+          <h2 id="insights-title">Guides from the vision AI front line.</h2>
+          <p>Practical articles on loss prevention, sports analytics, edge AI and building custom computer vision.</p>
+        </div>
+        <div class="post-grid">
+          <!-- INSIGHTS:START (generated by tools/build_site.py) -->
+  <a class="post-card" href="blog/ai-video-analytics-guide/index.html" data-cat="Computer Vision">
+            <div class="cover" style="--accent-c:#7aa2ff" aria-hidden="true"><span class="cb" style="left:48.0%;top:38.4%;width:11.9%;height:40.7%"><b>person 0.97</b></span><span class="cb" style="left:61.9%;top:25.5%;width:12.6%;height:27.1%"><b>vehicle 0.94</b></span><span class="cb" style="left:78.0%;top:43.3%;width:10.7%;height:38.2%"><b>event ↑</b></span><span class="cover-label">Computer Vision</span></div>
+            <div class="post-card-body">
+              <span class="cat">Computer Vision</span>
+              <h3>AI Video Analytics in 2026: What It Is, How It Works and Where It Pays Off</h3>
+              <p>What AI video analytics is, how it works, the highest-ROI use cases by industry, natural-language video search, and how to choose a platform in 2026.</p>
+              <span class="meta">18 November 2026 · 5 min read</span>
+            </div>
+          </a>
+          <a class="post-card" href="blog/vision-language-models-video-analytics/index.html" data-cat="AI Trends">
+            <div class="cover" style="--accent-c:#c4a7ff" aria-hidden="true"><span class="cb" style="left:46.0%;top:45.3%;width:11.6%;height:28.5%"><b>“hi-vis jacket?”</b></span><span class="cb" style="left:60.2%;top:39.5%;width:13.5%;height:39.7%"><b>yes · 0.91</b></span><span class="cb" style="left:79.9%;top:30.1%;width:10.1%;height:41.3%"><b>scaffold</b></span><span class="cover-label">AI Trends</span></div>
+            <div class="post-card-body">
+              <span class="cat">AI Trends</span>
+              <h3>Vision-Language Models for Video: What VLMs Can (and Can&#x27;t) Do Yet</h3>
+              <p>How vision-language models are changing computer vision: where VLMs shine, their limitations, and the detector + VLM cascade used in production video analytics.</p>
+              <span class="meta">18 November 2026 · 5 min read</span>
+            </div>
+          </a>
+          <a class="post-card" href="blog/semi-automated-offside-technology-explained/index.html" data-cat="Sports Analytics">
+            <div class="cover" style="--accent-c:#2dd4bf" aria-hidden="true"><span class="cb" style="left:47.4%;top:23.4%;width:10.6%;height:31.6%"><b>#9 offside</b></span><span class="cb" style="left:60.1%;top:33.6%;width:10.1%;height:29.8%"><b>kick 0.99</b></span><span class="cb" style="left:76.2%;top:28.3%;width:10.3%;height:31.6%"><b>#4 last def.</b></span><span class="cover-label">Sports Analytics</span></div>
+            <div class="post-card-body">
+              <span class="cat">Sports Analytics</span>
+              <h3>Semi-Automated Offside Technology Explained: How Computer Vision Makes the Call</h3>
+              <p>How semi-automated offside technology works: tracking cameras, 3D limb tracking, kick-point detection and VAR validation, and what clubs can learn from it.</p>
+              <span class="meta">18 November 2026 · 5 min read</span>
+            </div>
+          </a>
+  <!-- INSIGHTS:END -->
+        </div>
+        <div class="section-foot"><a class="btn btn-ghost" href="blog/index.html">All articles <span aria-hidden="true">→</span></a></div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-card" data-reveal>
+          <div>
+            <h2 id="cta-title">See what your cameras could be telling you.</h2>
+            <p>Send us 10 minutes of footage. We'll show you what our models detect on it, free and within 48 hours.</p>
+          </div>
+          <div class="cta-actions">
+            <a href="#contact" class="btn btn-white btn-lg">Book a demo <span aria-hidden="true">→</span></a>
+            <a href="blog/index.html" class="btn btn-outline-white btn-lg">Read the guides</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-head center">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions, answered.</h2>
+        </div>
+        <div class="faq-list" data-reveal>
+          <details open>
+            <summary>Do I need to buy new cameras?</summary>
+            <p>Usually not. ComputeSight works with most existing IP cameras (RTSP/ONVIF) at 720p or higher. During discovery we check your camera angles and coverage, and only recommend new hardware where it clearly pays off.</p>
+          </details>
+          <details>
+            <summary>How long does a pilot take?</summary>
+            <p>Most pilots run for 4–8 weeks: one week of discovery, two to three weeks building a proof of concept on your footage, then a live trial at one or two sites with agreed success metrics.</p>
+          </details>
+          <details>
+            <summary>Does it run on the edge or in the cloud?</summary>
+            <p>Either, or both. Real-time use cases like loss prevention and safety typically run on edge devices on-site, while reporting and model management live in the cloud. Fully on-prem deployments are available too.</p>
+          </details>
+          <details>
+            <summary>How do you handle privacy and regulation?</summary>
+            <p>We design for privacy from day one: masking at the source, minimal data retention, on-prem processing and documented data flows that support your GDPR or local compliance work. We don't do facial recognition by default.</p>
+          </details>
+          <details>
+            <summary>How accurate are the models?</summary>
+            <p>We agree accuracy targets with you during discovery and measure them on your own footage before go-live. Reviewer feedback keeps retraining the models, so false alerts drop over time.</p>
+          </details>
+          <details>
+            <summary>Can you build something completely custom?</summary>
+            <p>Yes. Custom AI is half of what we do, from bespoke detection models to vision-language agents that answer questions about your video. If a camera can see it, we can usually teach a model to understand it.</p>
+          </details>
+          <details>
+            <summary>How is pricing structured?</summary>
+            <p>Pilots are fixed-price. Production deployments are usually a per-camera or per-site subscription that covers software, model updates and support. Custom projects are scoped and quoted separately.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container contact-inner">
+        <div class="contact-copy" data-reveal>
+          <p class="eyebrow">Let's build</p>
+          <h2>What should your cameras see?</h2>
+          <p>Tell us your challenge. Within 48 hours we'll reply with a feasibility assessment and a demo plan built around your footage.</p>
+          <ul class="contact-list">
+            <li>Free feasibility assessment</li>
+            <li>Proof of concept on your own video</li>
+            <li>NDA available on request</li>
+          </ul>
+        </div>
+        <!--
+          Form delivery:
+          - data-endpoint: set to a form service URL (e.g. Formspree / Basin / Getform) or your own API to POST submissions.
+          - If data-endpoint is empty, submissions open the visitor's email app addressed to data-email.
+        -->
+        <form class="form card-glass" id="contactForm" data-reveal novalidate data-endpoint="" data-email="hello@computesight.ai">
+          <label class="hp" aria-hidden="true">Leave this empty<input name="website" tabindex="-1" autocomplete="off" /></label>
+          <div class="row">
+            <label><span>Name</span><input name="name" required autocomplete="name" /></label>
+            <label><span>Work email</span><input name="email" type="email" required autocomplete="email" /></label>
+          </div>
+          <label><span>Company</span><input name="company" autocomplete="organization" /></label>
+          <fieldset>
+            <legend>Interested in</legend>
+            <div class="pills">
+              <label><input type="checkbox" name="interest" value="cv" /><span>Computer Vision</span></label>
+              <label><input type="checkbox" name="interest" value="lp" /><span>Loss Prevention</span></label>
+              <label><input type="checkbox" name="interest" value="sports" /><span>Sports Analytics</span></label>
+              <label><input type="checkbox" name="interest" value="custom" /><span>Custom AI</span></label>
+              <label><input type="checkbox" name="interest" value="safety" /><span>Safety / QC</span></label>
+            </div>
+          </fieldset>
+          <label><span>Tell us about the project</span><textarea name="message" rows="4" required></textarea></label>
+          <button class="btn btn-block" type="submit">Send request <span aria-hidden="true">→</span></button>
+          <p class="form-status mono" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER:START (generated by tools/build_site.py) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <a href="index.html" class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16s5-8.5 13-8.5S29 16 29 16s-5 8.5-13 8.5S3 16 3 16z"/><circle cx="16" cy="16" r="4.2"/></svg><span>Compute<b>Sight</b></span></a>
+          <p>Computer vision and custom AI that turns cameras into real-time decisions.</p>
+          <form class="newsletter" novalidate>
+            <label for="nl-email">Get our monthly vision AI briefing</label>
+            <div class="newsletter-row">
+              <input id="nl-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+              <button class="btn" type="submit">Subscribe</button>
+            </div>
+            <p class="newsletter-status" role="status"></p>
+          </form>
+        </div>
+        <nav class="footer-col" aria-label="Solutions">
+          <h4>Solutions</h4>
+          <a href="solutions/computer-vision/index.html">Computer Vision Services</a>
+          <a href="solutions/loss-prevention/index.html">AI Loss Prevention</a>
+          <a href="solutions/sports-analytics/index.html">Sports Analytics</a>
+          <a href="solutions/custom-ai/index.html">Custom AI Solutions</a>
+          <a href="solutions/quality-inspection/index.html">Quality Inspection</a>
+        </nav>
+        <nav class="footer-col" aria-label="Company">
+          <h4>Company</h4>
+          <a href="about/index.html">About</a>
+          <a href="careers/index.html">Careers</a>
+          <a href="pricing/index.html">Pricing</a>
+          <a href="contact/index.html">Contact</a>
+        </nav>
+        <nav class="footer-col" aria-label="Resources">
+          <h4>Resources</h4>
+          <a href="blog/index.html">Blog</a>
+          <a href="#lab">Live demo</a>
+          <a href="#developers">Developers</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <nav class="footer-col" aria-label="Legal">
+          <h4>Legal</h4>
+          <a href="legal/privacy/index.html">Privacy policy</a>
+          <a href="legal/terms/index.html">Terms of use</a>
+          <a href="legal/cookies/index.html">Cookie policy</a>
+          <button class="link-btn" type="button" data-cookie-settings>Cookie settings</button>
+        </nav>
+      </div>
+      <div class="footer-inner">
+        <p class="small">© <span id="year"></span> ComputeSight. All rights reserved.</p>
+        <div class="socials"><a href="blog/feed.xml" aria-label="RSS feed"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4a16 16 0 0116 16h-3A13 13 0 004 7zm0 6a10 10 0 0110 10h-3a7 7 0 00-7-7zm2 6a2 2 0 110 4 2 2 0 010-4z"/></svg></a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/config.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <!-- FOOTER:END -->
+</body>
+</html>

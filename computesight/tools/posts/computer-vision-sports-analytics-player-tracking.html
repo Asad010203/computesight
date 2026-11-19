@@ -1,0 +1,97 @@
+<div class="takeaways">
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>Computer vision can track every player and the ball from video alone, with no wearables and no changes to how athletes play.</li>
+    <li>The core pipeline is detection, tracking, player identification, pitch calibration and event detection.</li>
+    <li>Camera setup is the biggest factor in accuracy: a fixed, elevated wide-angle view beats a moving broadcast feed.</li>
+    <li>Optical tracking and GPS wearables complement each other. Video also captures the ball, the opponent and the tactical context.</li>
+  </ul>
+</div>
+
+<p>Not long ago, detailed player tracking data was available only to elite clubs with multi-camera stadium installations. Today, <strong>computer vision sports analytics</strong> can produce much of the same data from one well-placed camera. That opens it up to academies, lower leagues, college programmes and broadcasters.</p>
+
+<p>This guide explains how optical player tracking works, what it can measure, and how to choose the right setup.</p>
+
+<h2 id="what-it-measures">What computer vision tracking measures</h2>
+
+<p>Once every player and the ball has a position on the pitch, many times per second, a wide range of metrics follows:</p>
+
+<ul>
+  <li><strong>Physical:</strong> total distance, high-speed running, sprints, top speed, accelerations and decelerations.</li>
+  <li><strong>Spatial:</strong> heatmaps, average positions, team shape, width and depth, and distances between the lines.</li>
+  <li><strong>Tactical:</strong> pressing intensity, passing networks, off-ball runs, defensive line height and transitions.</li>
+  <li><strong>Events:</strong> passes, shots, tackles, interceptions and set pieces, detected automatically and linked to video.</li>
+  <li><strong>Media:</strong> automatic highlights, player-cam clips and live graphics for broadcast.</li>
+</ul>
+
+<h2 id="how-it-works">How optical player tracking works</h2>
+
+<h3>1. Detection</h3>
+<p>A detection model finds every player, referee and the ball in each frame. The ball is the hard part: it's small, fast, often blurred and frequently hidden. Dedicated ball models and motion cues help fill the gaps.</p>
+
+<h3>2. Multi-object tracking</h3>
+<p>Detections are linked over time into <em>tracks</em>, continuous paths for each person. The tracker has to handle players crossing, clustering at set pieces and leaving the frame. Good trackers combine motion prediction with appearance features, such as kit colour and body shape.</p>
+
+<h3>3. Identification</h3>
+<p>A track is only useful if you know who it is. Team assignment usually comes from kit colour clustering. Individual identity comes from <strong>jersey number recognition</strong> and re-identification models, plus a quick human check after the match where needed.</p>
+
+<h3>4. Pitch calibration (homography)</h3>
+<p>To turn pixels into metres, the system detects pitch lines and landmarks and calculates a mapping from the camera view to a top-down pitch model. For moving broadcast cameras, this has to be recalculated for every frame as the camera pans and zooms.</p>
+
+<h3>5. Event detection and analytics</h3>
+<p>With clean positional data, rules and learned models detect events such as passes, shots and pressures, and compute the metrics coaches use. You can explore a live simulation of this pipeline in our <a href="../../index.html#lab">Vision Lab</a>, and paint your own heatmap in the <a href="../../index.html#sports">sports analytics section</a>.</p>
+
+<h2 id="camera-setups">Choosing a camera setup</h2>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Setup</th><th>Pros</th><th>Cons</th><th>Best for</th></tr></thead>
+  <tbody>
+    <tr><td>Broadcast feed</td><td>No hardware needed; works on archive footage</td><td>Players leave the frame; constant pan/zoom; replays and cuts</td><td>Opposition scouting, media, event data</td></tr>
+    <tr><td>Fixed panoramic camera</td><td>Whole pitch always visible; stable calibration; affordable</td><td>Lower resolution on far-side players</td><td>Academies, clubs, training sessions</td></tr>
+    <tr><td>Multi-camera installation</td><td>Highest accuracy; handles occlusion; 3D possible</td><td>Higher cost; permanent installation</td><td>Stadiums, leagues, elite performance</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>For most clubs and academies, a <strong>fixed, elevated, wide-angle camera</strong> is the sweet spot. Height matters more than resolution: the higher the camera, the less players hide each other.</p>
+
+<h2 id="vs-wearables">Optical tracking vs GPS wearables</h2>
+
+<p>GPS and local positioning vests are well established in performance departments, and they're excellent at measuring <em>your own</em> players' physical load. Computer vision adds things wearables can't capture:</p>
+
+<ul>
+  <li><strong>The ball and the opposition</strong>, essential for any tactical analysis.</li>
+  <li><strong>Context:</strong> every data point is linked to video, so a sprint can be watched, not just counted.</li>
+  <li><strong>No athlete burden:</strong> nothing to wear, charge or forget, and it works on matches where vests aren't allowed.</li>
+  <li><strong>Retrospective analysis</strong> of any footage, including historical matches and opponents.</li>
+</ul>
+
+<p>Many performance teams use both: wearables for detailed physiological load in training, and optical tracking for matches, tactics and scouting.</p>
+
+<h2 id="accuracy">What affects accuracy</h2>
+
+<ul>
+  <li><strong>Camera height and angle:</strong> the biggest single factor.</li>
+  <li><strong>Occlusion:</strong> crowded set pieces challenge every tracker; multi-camera setups reduce this.</li>
+  <li><strong>Lighting and weather:</strong> floodlight flicker, shadows across the pitch and rain all affect detection.</li>
+  <li><strong>Kit similarity:</strong> teams in similar colours, and goalkeepers, need careful team assignment.</li>
+  <li><strong>Frame rate:</strong> 25 fps or higher is recommended for reliable speed and acceleration metrics.</li>
+</ul>
+
+<p>Ask any provider to validate accuracy on <em>your</em> footage, against a manually annotated sample, before you commit.</p>
+
+<h2 id="beyond-football">Beyond football</h2>
+
+<p>The same building blocks power analytics in basketball (shot charts, spacing, pick-and-roll detection), cricket (fielding positions, ball tracking), rugby (line speed, ruck counts), tennis (shot placement, movement) and esports broadcasts. Pose estimation adds biomechanics, such as running technique, throwing mechanics and injury-risk indicators.</p>
+
+<h2 id="getting-started">Getting started</h2>
+
+<ol>
+  <li>Define the questions your coaches actually ask, and work backwards to the metrics.</li>
+  <li>Test with existing footage first. Most providers can process sample matches before any installation.</li>
+  <li>Choose a camera setup that suits your venue and budget.</li>
+  <li>Integrate the outputs into the tools your analysts already use, through an API or exports.</li>
+</ol>
+
+<p>Want to see what your footage can tell you? <a href="../../index.html#contact">Send us a match</a> and we'll show you.</p>

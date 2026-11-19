@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Custom Computer Vision Solutions: Build vs Buy Guide | ComputeSight</title>
+  <meta name="description" content="When to build custom computer vision, how foundation models changed the cost, the full project lifecycle, and the questions to ask a vision AI partner." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://www.computesight.ai/blog/custom-computer-vision-solutions-guide/" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:site_name" content="ComputeSight" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Custom Computer Vision Solutions: Build vs Buy Guide | ComputeSight" />
+  <meta property="og:description" content="When to build custom computer vision, how foundation models changed the cost, the full project lifecycle, and the questions to ask a vision AI partner." />
+  <meta property="og:url" content="https://www.computesight.ai/blog/custom-computer-vision-solutions-guide/" />
+  <meta property="og:image" content="https://www.computesight.ai/assets/og/custom-computer-vision-solutions-guide.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Custom Computer Vision Solutions: Build vs Buy Guide | ComputeSight" />
+  <meta name="twitter:description" content="When to build custom computer vision, how foundation models changed the cost, the full project lifecycle, and the questions to ask a vision AI partner." />
+  <meta name="twitter:image" content="https://www.computesight.ai/assets/og/custom-computer-vision-solutions-guide.png" />
+  <meta property="article:published_time" content="2026-11-18" />
+  <meta property="article:modified_time" content="2026-11-18" />
+  <meta property="article:section" content="Custom AI" />
+  <meta property="article:tag" content="custom computer vision solutions" />
+  <meta property="article:tag" content="computer vision development" />
+  <meta property="article:tag" content="custom AI solutions" />
+  <meta property="article:tag" content="build vs buy AI" />
+  <meta property="article:tag" content="computer vision consulting" />
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <link rel="alternate" type="application/rss+xml" title="ComputeSight Insights" href="../../blog/feed.xml" />
+  <link rel="preload" href="../../assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Custom Computer Vision Solutions: A Practical Guide from Idea to Production", "description": "When to build custom computer vision, how foundation models changed the cost, the full project lifecycle, and the questions to ask a vision AI partner.", "image": ["https://www.computesight.ai/assets/og/custom-computer-vision-solutions-guide.png"], "datePublished": "2026-11-18", "dateModified": "2026-11-18", "author": {"@type": "Organization", "name": "ComputeSight", "url": "https://www.computesight.ai/", "logo": {"@type": "ImageObject", "url": "https://www.computesight.ai/assets/logo-512.png", "width": 512, "height": 512}}, "publisher": {"@type": "Organization", "name": "ComputeSight", "url": "https://www.computesight.ai/", "logo": {"@type": "ImageObject", "url": "https://www.computesight.ai/assets/logo-512.png", "width": 512, "height": 512}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.computesight.ai/blog/custom-computer-vision-solutions-guide/"}, "url": "https://www.computesight.ai/blog/custom-computer-vision-solutions-guide/", "articleSection": "Custom AI", "keywords": "custom computer vision solutions, computer vision development, custom AI solutions, build vs buy AI, computer vision consulting", "wordCount": 983, "inLanguage": "en"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.computesight.ai/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.computesight.ai/blog/"}, {"@type": "ListItem", "position": 3, "name": "Custom Computer Vision Solutions: A Practical Guide from Idea to Production", "item": "https://www.computesight.ai/blog/custom-computer-vision-solutions-guide/"}]}</script>
+</head>
+<body data-root="../../">
+  <a class="skip" href="#top">Skip to content</a>
+  <header class="nav" id="nav">
+    <a href="../../index.html" class="brand" aria-label="ComputeSight home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16s5-8.5 13-8.5S29 16 29 16s-5 8.5-13 8.5S3 16 3 16z"/><circle cx="16" cy="16" r="4.2"/></svg><span>Compute<b>Sight</b></span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <div class="dd">
+        <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-solutions">Solutions <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dd-menu" id="dd-solutions">
+          <a href="../../solutions/computer-vision/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span><b>Computer Vision Services</b><small>Detection, tracking, OCR &amp; pose</small></span></a>
+          <a href="../../solutions/loss-prevention/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b>AI Loss Prevention</b><small>Self-checkout, POS &amp; theft detection</small></span></a>
+          <a href="../../solutions/sports-analytics/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 5h-5L8 10z"/></svg></span><span><b>Sports Analytics</b><small>Player &amp; ball tracking from video</small></span></a>
+          <a href="../../solutions/custom-ai/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg></span><span><b>Custom AI Solutions</b><small>Bespoke models &amp; vision-language agents</small></span></a>
+          <a href="../../solutions/quality-inspection/index.html"><span class="dd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M5 20V9l5 3V9l5 3V5h4v15"/></svg></span><span><b>Quality Inspection</b><small>Automated visual defect detection</small></span></a>
+          <a class="dd-foot" href="../../index.html#lab">See all of it running in the live demo <span>→</span></a>
+        </div>
+      </div>
+      <a href="../../index.html#industries">Industries</a>
+      <a href="../../pricing/index.html">Pricing</a>
+      <a href="../../blog/index.html" class="current" aria-current="page">Blog</a>
+      <a href="../../about/index.html">About</a>
+      <a href="../../contact/index.html" class="btn btn-sm">Book a demo</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <main id="top">
+    <div class="progress" aria-hidden="true"></div>
+    <article>
+      <header class="page-head">
+        <div class="container">
+          <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Blog</a></li><li><span aria-current="page">Custom AI</span></li></ol></nav>
+          <p class="eyebrow">Custom AI</p>
+          <h1>Custom Computer Vision Solutions: A Practical Guide from Idea to Production</h1>
+          <p class="lead">When to build custom computer vision, how foundation models changed the cost, the full project lifecycle, and the questions to ask a vision AI partner.</p>
+          <div class="post-meta">
+            <span>By the ComputeSight team</span>
+            <span><time datetime="2026-11-18">18 November 2026</time></span>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </header>
+      <div class="container">
+        <div class="cover" style="--accent-c:#a78bfa" aria-hidden="true"><span class="cb" style="left:46.6%;top:27.3%;width:10.5%;height:38.8%"><b>defect 0.94</b></span><span class="cb" style="left:61.8%;top:41.3%;width:12.3%;height:30.8%"><b>part 0.99</b></span><span class="cb" style="left:76.3%;top:33.5%;width:10.1%;height:31.2%"><b>label 0.87</b></span><span class="cover-label">Custom AI</span></div>
+        <div class="post-layout">
+          <nav class="toc" aria-label="Table of contents">
+            <p>On this page</p>
+            <ol>
+              <li><a href="#build-vs-buy">Build vs buy: when custom makes sense</a></li>
+              <li><a href="#foundation-models">How foundation models changed the game</a></li>
+              <li><a href="#lifecycle">The custom computer vision project lifecycle</a></li>
+              <li><a href="#cost-drivers">What drives cost and timeline</a></li>
+              <li><a href="#pitfalls">Common pitfalls to avoid</a></li>
+              <li><a href="#vendor-questions">Questions to ask a computer vision partner</a></li>
+            </ol>
+          </nav>
+          <div class="prose">
+<div class="takeaways">
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>Off-the-shelf vision products work well for common, well-defined problems; custom solutions win when your objects, environment or workflow are unusual.</li>
+    <li>Foundation models have sharply reduced the data and time needed, but the quality of your own data is still the deciding factor.</li>
+    <li>A successful project follows a clear lifecycle: define, collect, label, train, evaluate, deploy and monitor.</li>
+    <li>Most failures come from vague success criteria and production conditions that differ from the training data, not from the choice of model.</li>
+  </ul>
+</div>
+
+<p>Every business has a visual problem that no product quite solves: a defect only your line produces, a workflow only your warehouse runs, a question only your footage can answer. That's where <strong>custom computer vision solutions</strong> come in.</p>
+
+<p>This guide is for business and technical leaders deciding whether to build a custom vision system, and how to make sure it works once it leaves the lab.</p>
+
+<h2 id="build-vs-buy">Build vs buy: when custom makes sense</h2>
+
+<p>Start by checking whether an off-the-shelf product already fits. People counting, licence plate recognition and basic PPE detection are mature, well-served categories. Custom development is worth it when:</p>
+
+<ul>
+  <li><strong>Your objects are unusual:</strong> specific parts, proprietary products, rare defects or specialist equipment.</li>
+  <li><strong>Your environment is hard:</strong> extreme lighting, unusual camera angles, reflections, dust, or thermal or aerial imagery.</li>
+  <li><strong>Your logic is specific:</strong> the value comes from combining vision with your own data, such as POS, ERP, a manufacturing execution system or scheduling.</li>
+  <li><strong>You need to own the advantage:</strong> the capability is core to your product or a competitive edge.</li>
+  <li><strong>Off-the-shelf accuracy isn't good enough</strong> on your real footage.</li>
+</ul>
+
+<h2 id="foundation-models">How foundation models changed the game</h2>
+
+<p>A few years ago, a custom vision model often needed tens of thousands of labelled images and months of work. Today, large pre-trained models change the maths:</p>
+
+<ul>
+  <li><strong>Fine-tuning</strong> strong pre-trained detectors and segmenters often reaches useful accuracy with hundreds to low thousands of well-chosen images per class.</li>
+  <li><strong>Open-vocabulary detection and promptable segmentation</strong> speed up labelling dramatically: models suggest boxes and masks, and people correct them.</li>
+  <li><strong>Vision-language models</strong> can answer open questions about images and video ("Is the loading bay blocked?"), which is ideal for prototypes and long-tail cases.</li>
+  <li><strong>Synthetic data</strong> from 3D renders or generative models can fill gaps for rare events like specific defects or safety incidents.</li>
+</ul>
+
+<p>Foundation models don't remove the need for good data. They mean you need <em>less</em> of it, and that the data you do collect matters even more.</p>
+
+<h2 id="lifecycle">The custom computer vision project lifecycle</h2>
+
+<h3>1. Define the problem in measurable terms</h3>
+<p>"Detect defects" isn't a specification. "Detect scratches longer than 2 mm on parts moving at 1 m/s, with at least 95% recall and fewer than 1% false rejects" is. Agree what counts as success, and what happens when the model is wrong, before writing any code.</p>
+
+<h3>2. Collect representative data</h3>
+<p>Capture footage from the real cameras, in the real conditions: every shift, season, lighting change and product variant. A model trained on daytime data will struggle at night.</p>
+
+<h3>3. Label carefully</h3>
+<p>Write a labelling guide with clear examples of edge cases. Inconsistent labels are one of the most common hidden causes of poor accuracy. Use model-assisted labelling and review samples for quality.</p>
+
+<h3>4. Train and select models</h3>
+<p>Choose an architecture that fits the task (detection, segmentation, classification, pose or tracking) <em>and</em> the deployment target. A model that's perfect on a data-centre GPU but too slow for the <a href="../edge-ai-vs-cloud-computer-vision/index.html">edge device</a> it has to run on isn't finished.</p>
+
+<h3>5. Evaluate honestly</h3>
+<p>Test on a held-out set from different days, sites or cameras than the training data. Report precision and recall for each class and condition, not just one average number. Then watch the model on live footage before it makes any real decisions.</p>
+
+<h3>6. Deploy and integrate</h3>
+<p>Optimise the model (quantisation, compilation), package it, and connect it to the systems that act on its output: PLCs, POS, alerting tools, dashboards and APIs.</p>
+
+<h3>7. Monitor and improve</h3>
+<p>The real world changes. New products, new uniforms, a moved camera or a dirty lens all cause <strong>data drift</strong>. Monitor confidence levels and reviewer feedback, collect hard examples, and retrain on a regular schedule.</p>
+
+<h2 id="cost-drivers">What drives cost and timeline</h2>
+
+<ul>
+  <li><strong>Problem difficulty:</strong> subtle defects or rare events need more data and iteration than counting people.</li>
+  <li><strong>Data availability:</strong> existing footage speeds things up, while new camera installations slow them down.</li>
+  <li><strong>Accuracy requirements:</strong> each extra point of accuracy near the top costs more than the one before.</li>
+  <li><strong>Integration complexity:</strong> connecting to legacy systems is often more work than the model itself.</li>
+  <li><strong>Scale:</strong> one camera in a pilot is very different from 2,000 cameras across 300 sites.</li>
+</ul>
+
+<p>A typical engagement starts with a 4–8 week proof of concept on your own footage, which removes most of the uncertainty before any larger investment.</p>
+
+<h2 id="pitfalls">Common pitfalls to avoid</h2>
+
+<ul>
+  <li><strong>Demo-ware:</strong> impressive on curated clips, failing on real footage. Always test on unseen, messy data.</li>
+  <li><strong>No plan for errors:</strong> every model makes mistakes; design the human workflow around them.</li>
+  <li><strong>Ignoring the camera:</strong> moving or upgrading a camera is often cheaper than months of model work.</li>
+  <li><strong>One-and-done thinking:</strong> without monitoring and retraining, accuracy slowly degrades.</li>
+  <li><strong>Privacy as an afterthought:</strong> masking, retention and access control are far easier to design in than to add later.</li>
+</ul>
+
+<h2 id="vendor-questions">Questions to ask a computer vision partner</h2>
+
+<ol>
+  <li>Will you prove accuracy on <em>our</em> footage before we commit to a full rollout?</li>
+  <li>Who owns the trained models and the labelled data?</li>
+  <li>How do you handle drift, retraining and model updates in production?</li>
+  <li>Can the solution run on the edge, in the cloud and on-premises?</li>
+  <li>How do you protect privacy and meet regulatory requirements?</li>
+  <li>What does integration with our existing systems involve?</li>
+</ol>
+
+<p>Custom computer vision is no longer a moonshot. With the right problem definition, representative data and a production-minded partner, it's a predictable engineering project. If you have a problem a camera could solve, <a href="../../index.html#contact">tell us about it</a>. Our <a href="../../index.html#process">process</a> is built to answer "will this work?" in weeks.</p>
+
+            <aside class="post-cta">
+              <h2>See it on your own footage</h2>
+              <p>Send us a sample clip and within 48 hours we'll reply with a feasibility assessment and a demo plan for your cameras.</p>
+              <a class="btn" href="../../contact/index.html">Book a demo <span aria-hidden="true">→</span></a>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="related" aria-labelledby="related-title">
+      <div class="container">
+        <h2 id="related-title">Keep reading</h2>
+        <div class="post-grid">
+          <a class="post-card" href="../computer-vision-project-cost/index.html" data-cat="Custom AI">
+            <div class="cover" style="--accent-c:#34d399" aria-hidden="true"><span class="cb" style="left:45.6%;top:38.4%;width:11.1%;height:30.9%"><b>PoC</b></span><span class="cb" style="left:60.8%;top:27.1%;width:13.0%;height:38.1%"><b>pilot</b></span><span class="cb" style="left:77.7%;top:42.6%;width:11.8%;height:30.1%"><b>rollout</b></span><span class="cover-label">Custom AI</span></div>
+            <div class="post-card-body">
+              <span class="cat">Custom AI</span>
+              <h3>How Much Does a Computer Vision Project Cost? A 2026 Budgeting Guide</h3>
+              <p>What a computer vision project costs in 2026: indicative budgets, the main cost drivers, hidden costs and how to cut cost without hurting results.</p>
+              <span class="meta">18 November 2026 · 5 min read</span>
+            </div>
+          </a>
+          <a class="post-card" href="../ai-video-analytics-guide/index.html" data-cat="Computer Vision">
+            <div class="cover" style="--accent-c:#7aa2ff" aria-hidden="true"><span class="cb" style="left:48.0%;top:38.4%;width:11.9%;height:40.7%"><b>person 0.97</b></span><span class="cb" style="left:61.9%;top:25.5%;width:12.6%;height:27.1%"><b>vehicle 0.94</b></span><span class="cb" style="left:78.0%;top:43.3%;width:10.7%;height:38.2%"><b>event ↑</b></span><span class="cover-label">Computer Vision</span></div>
+            <div class="post-card-body">
+              <span class="cat">Computer Vision</span>
+              <h3>AI Video Analytics in 2026: What It Is, How It Works and Where It Pays Off</h3>
+              <p>What AI video analytics is, how it works, the highest-ROI use cases by industry, natural-language video search, and how to choose a platform in 2026.</p>
+              <span class="meta">18 November 2026 · 5 min read</span>
+            </div>
+          </a>
+          <a class="post-card" href="../vision-language-models-video-analytics/index.html" data-cat="AI Trends">
+            <div class="cover" style="--accent-c:#c4a7ff" aria-hidden="true"><span class="cb" style="left:46.0%;top:45.3%;width:11.6%;height:28.5%"><b>“hi-vis jacket?”</b></span><span class="cb" style="left:60.2%;top:39.5%;width:13.5%;height:39.7%"><b>yes · 0.91</b></span><span class="cb" style="left:79.9%;top:30.1%;width:10.1%;height:41.3%"><b>scaffold</b></span><span class="cover-label">AI Trends</span></div>
+            <div class="post-card-body">
+              <span class="cat">AI Trends</span>
+              <h3>Vision-Language Models for Video: What VLMs Can (and Can&#x27;t) Do Yet</h3>
+              <p>How vision-language models are changing computer vision: where VLMs shine, their limitations, and the detector + VLM cascade used in production video analytics.</p>
+              <span class="meta">18 November 2026 · 5 min read</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <a href="../../index.html" class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16s5-8.5 13-8.5S29 16 29 16s-5 8.5-13 8.5S3 16 3 16z"/><circle cx="16" cy="16" r="4.2"/></svg><span>Compute<b>Sight</b></span></a>
+          <p>Computer vision and custom AI that turns cameras into real-time decisions.</p>
+          <form class="newsletter" novalidate>
+            <label for="nl-email">Get our monthly vision AI briefing</label>
+            <div class="newsletter-row">
+              <input id="nl-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+              <button class="btn" type="submit">Subscribe</button>
+            </div>
+            <p class="newsletter-status" role="status"></p>
+          </form>
+        </div>
+        <nav class="footer-col" aria-label="Solutions">
+          <h4>Solutions</h4>
+          <a href="../../solutions/computer-vision/index.html">Computer Vision Services</a>
+          <a href="../../solutions/loss-prevention/index.html">AI Loss Prevention</a>
+          <a href="../../solutions/sports-analytics/index.html">Sports Analytics</a>
+          <a href="../../solutions/custom-ai/index.html">Custom AI Solutions</a>
+          <a href="../../solutions/quality-inspection/index.html">Quality Inspection</a>
+        </nav>
+        <nav class="footer-col" aria-label="Company">
+          <h4>Company</h4>
+          <a href="../../about/index.html">About</a>
+          <a href="../../careers/index.html">Careers</a>
+          <a href="../../pricing/index.html">Pricing</a>
+          <a href="../../contact/index.html">Contact</a>
+        </nav>
+        <nav class="footer-col" aria-label="Resources">
+          <h4>Resources</h4>
+          <a href="../../blog/index.html">Blog</a>
+          <a href="../../index.html#lab">Live demo</a>
+          <a href="../../index.html#developers">Developers</a>
+          <a href="../../index.html#faq">FAQ</a>
+        </nav>
+        <nav class="footer-col" aria-label="Legal">
+          <h4>Legal</h4>
+          <a href="../../legal/privacy/index.html">Privacy policy</a>
+          <a href="../../legal/terms/index.html">Terms of use</a>
+          <a href="../../legal/cookies/index.html">Cookie policy</a>
+          <button class="link-btn" type="button" data-cookie-settings>Cookie settings</button>
+        </nav>
+      </div>
+      <div class="footer-inner">
+        <p class="small">© <span id="year"></span> ComputeSight. All rights reserved.</p>
+        <div class="socials"><a href="../../blog/feed.xml" aria-label="RSS feed"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4a16 16 0 0116 16h-3A13 13 0 004 7zm0 6a10 10 0 0110 10h-3a7 7 0 00-7-7zm2 6a2 2 0 110 4 2 2 0 010-4z"/></svg></a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../js/config.js" defer></script>
+  <script src="../../js/main.js" defer></script>
+  <script src="../../js/blog.js" defer></script>
+</body>
+</html>

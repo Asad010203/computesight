@@ -1,0 +1,100 @@
+<div class="takeaways">
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>Edge AI runs computer vision models on devices near the camera; cloud AI streams video to remote servers for processing.</li>
+    <li>Edge wins on latency, bandwidth and privacy; cloud wins on elastic compute, central management and heavy batch workloads.</li>
+    <li>Continuous video is expensive to upload: 50 cameras can generate more than a terabyte of video a day.</li>
+    <li>Most production systems are hybrid: inference at the edge, with management, analytics and retraining in the cloud.</li>
+  </ul>
+</div>
+
+<p>One of the first architecture decisions in any <strong>computer vision</strong> project is where the models will run. Will video be processed on devices in the store, factory or stadium (the <strong>edge</strong>), or streamed to servers in the <strong>cloud</strong>?</p>
+
+<p>The answer affects cost, speed, privacy and how easily the system scales. This guide sets out the trade-offs and offers a practical way to decide.</p>
+
+<h2 id="definitions">Edge AI and cloud AI, defined</h2>
+
+<p><strong>Edge AI</strong> means running inference on hardware physically close to the cameras: a small accelerator box in a comms cupboard, a GPU server on-site, or even the camera itself. Video is analysed locally, and only results (events, counts, short clips) are sent onward.</p>
+
+<p><strong>Cloud AI</strong> means sending video or images to data centres where models run on shared, scalable GPU infrastructure. Results come back over the network.</p>
+
+<h2 id="comparison">Edge vs cloud: side by side</h2>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Factor</th><th>Edge AI</th><th>Cloud AI</th></tr></thead>
+  <tbody>
+    <tr><td>Latency</td><td>Milliseconds; no network round trip</td><td>Depends on uplink and distance; typically hundreds of ms or more</td></tr>
+    <tr><td>Bandwidth</td><td>Minimal; only events and clips leave the site</td><td>High; continuous upload of every stream</td></tr>
+    <tr><td>Privacy</td><td>Raw video stays on premises</td><td>Video leaves the site; needs stronger governance</td></tr>
+    <tr><td>Resilience</td><td>Keeps working if the internet drops</td><td>Stops if connectivity is lost</td></tr>
+    <tr><td>Compute flexibility</td><td>Fixed by on-site hardware</td><td>Effectively unlimited; scale on demand</td></tr>
+    <tr><td>Upfront cost</td><td>Hardware per site</td><td>Low; pay as you go</td></tr>
+    <tr><td>Running cost</td><td>Low once deployed</td><td>Ongoing compute, storage and egress fees</td></tr>
+    <tr><td>Fleet management</td><td>Needs remote device management</td><td>Centralised by default</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="bandwidth-math">The bandwidth maths most projects underestimate</h2>
+
+<p>A single 1080p camera stream encoded with H.264 typically uses about <strong>2–4 Mbps</strong>. That sounds small until you multiply it:</p>
+
+<ul>
+  <li>50 cameras × 3 Mbps = <strong>150 Mbps</strong> of continuous upload.</li>
+  <li>150 Mbps over 24 hours ≈ <strong>1.6 TB of video per day</strong>, per site.</li>
+</ul>
+
+<p>Few retail stores, warehouses or sports grounds have that much spare upload capacity, and storing and processing that volume in the cloud adds up quickly. This is the main reason real-time, multi-camera use cases such as <a href="../ai-loss-prevention-computer-vision-retail-shrink/index.html">loss prevention</a> and <a href="../self-checkout-theft-detection-computer-vision/index.html">self-checkout monitoring</a> are almost always processed at the edge.</p>
+
+<h2 id="when-edge">When edge AI is the right choice</h2>
+<ul>
+  <li><strong>Real-time decisions:</strong> self-checkout prompts, safety interlocks, rejecting defects on a production line.</li>
+  <li><strong>Many cameras per site</strong> where bandwidth would be prohibitive.</li>
+  <li><strong>Sensitive environments:</strong> healthcare, workplaces and anywhere raw footage shouldn't leave the building.</li>
+  <li><strong>Unreliable connectivity:</strong> remote sites, vehicles, drones and stadiums on match day.</li>
+</ul>
+
+<h2 id="when-cloud">When the cloud is the right choice</h2>
+<ul>
+  <li><strong>Batch and retrospective analysis:</strong> processing archived footage or full sports matches after the event.</li>
+  <li><strong>Low camera counts</strong> or event-triggered images rather than continuous video.</li>
+  <li><strong>Very large models</strong>, such as vision-language models that answer open questions about footage, which are impractical on small devices.</li>
+  <li><strong>Fast experimentation</strong> during a proof of concept, before hardware is chosen.</li>
+</ul>
+
+<h2 id="hybrid">The hybrid pattern most teams end up with</h2>
+
+<p>In practice, the question is rarely "edge <em>or</em> cloud" but "which parts where?" A typical production architecture looks like this:</p>
+
+<ol>
+  <li><strong>Edge:</strong> video decoding, detection, tracking and real-time rules run on-site. Alerts fire locally in milliseconds.</li>
+  <li><strong>Edge to cloud:</strong> only structured events, metrics and short evidence clips are uploaded.</li>
+  <li><strong>Cloud:</strong> dashboards, cross-site analytics, alert review, model training and fleet management.</li>
+  <li><strong>Cloud to edge:</strong> improved models are pushed back to devices over the air, with staged rollouts and rollback.</li>
+</ol>
+
+<blockquote><p>Run inference where the data is, and do the learning where the data comes together.</p></blockquote>
+
+<h2 id="hardware">Edge hardware options</h2>
+
+<ul>
+  <li><strong>NVIDIA Jetson modules:</strong> a popular, flexible choice with a mature software stack (CUDA, TensorRT, DeepStream).</li>
+  <li><strong>Dedicated AI accelerators</strong> such as Hailo and Google Coral: very power-efficient for well-optimised models.</li>
+  <li><strong>On-prem GPU servers:</strong> for sites with dozens of cameras or heavier models.</li>
+  <li><strong>Smart cameras</strong> with built-in NPUs: good for simple, single-camera tasks.</li>
+</ul>
+
+<p>Getting the most from edge hardware means optimising models through <strong>quantisation</strong> (FP16 or INT8), pruning, efficient architectures and runtime compilers such as TensorRT. Done well, this can multiply throughput on the same device with little loss of accuracy.</p>
+
+<h2 id="decision-checklist">A quick decision checklist</h2>
+
+<ol>
+  <li>Does the use case need a response in under a second? → <strong>Edge</strong>.</li>
+  <li>Are there more than a handful of continuous streams per site? → <strong>Edge</strong>.</li>
+  <li>Must raw video stay on premises? → <strong>Edge</strong>.</li>
+  <li>Is the work batch-based, occasional or very model-heavy? → <strong>Cloud</strong>.</li>
+  <li>Do you need cross-site dashboards, retraining and fleet updates? → <strong>Cloud, as part of a hybrid</strong>.</li>
+</ol>
+
+<p>ComputeSight deploys the same pipelines to the edge, the cloud or both, behind one API. If you're weighing up options, <a href="../../index.html#contact">talk to our team</a> and we'll help you size it.</p>
